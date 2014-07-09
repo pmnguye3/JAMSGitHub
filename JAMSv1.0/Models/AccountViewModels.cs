@@ -86,8 +86,17 @@ namespace JAMSv1._0.Models
         public string PhoneNumber { get; set; }
 
         [Required]
-        [Display(Name = "Address")]
-        public string Address { get; set; }
+        [Display(Name = "Street Address")]
+        public string StreetAddress { get; set; }
+
+        [Required]
+        [Display(Name = "City")]
+        public string City { get; set; }
+
+        [Required]
+        [Display(Name = "Zip Code")]
+        [DataType(DataType.PostalCode)]
+        public int ZipCode { get; set; }
     }
 
     public class ResetPasswordViewModel

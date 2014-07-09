@@ -183,6 +183,22 @@
     <Compile Include="Migrations\201407081527098_Address.Designer.cs">
       <DependentUpon>201407081527098_Address.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201407090058580_StreetAddress.cs" />
+    <Compile Include="Migrations\201407090058580_StreetAddress.Designer.cs">
+      <DependentUpon>201407090058580_StreetAddress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201407090102188_City.cs" />
+    <Compile Include="Migrations\201407090102188_City.Designer.cs">
+      <DependentUpon>201407090102188_City.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201407090103063_ZipCode.cs" />
+    <Compile Include="Migrations\201407090103063_ZipCode.Designer.cs">
+      <DependentUpon>201407090103063_ZipCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201407090107029_ZipCode1.cs" />
+    <Compile Include="Migrations\201407090107029_ZipCode1.Designer.cs">
+      <DependentUpon>201407090107029_ZipCode1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -268,6 +284,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201407081527098_Address.resx">
       <DependentUpon>201407081527098_Address.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407090058580_StreetAddress.resx">
+      <DependentUpon>201407090058580_StreetAddress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407090102188_City.resx">
+      <DependentUpon>201407090102188_City.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407090103063_ZipCode.resx">
+      <DependentUpon>201407090103063_ZipCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407090107029_ZipCode1.resx">
+      <DependentUpon>201407090107029_ZipCode1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
