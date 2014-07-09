@@ -163,41 +163,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201407071945542_InitialCreate.cs" />
-    <Compile Include="Migrations\201407071945542_InitialCreate.Designer.cs">
-      <DependentUpon>201407071945542_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201407072217364_FirstName.cs" />
-    <Compile Include="Migrations\201407072217364_FirstName.Designer.cs">
-      <DependentUpon>201407072217364_FirstName.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201407072222363_LastName.cs" />
-    <Compile Include="Migrations\201407072222363_LastName.Designer.cs">
-      <DependentUpon>201407072222363_LastName.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201407072230229_PhoneNumber.cs" />
-    <Compile Include="Migrations\201407072230229_PhoneNumber.Designer.cs">
-      <DependentUpon>201407072230229_PhoneNumber.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201407081527098_Address.cs" />
-    <Compile Include="Migrations\201407081527098_Address.Designer.cs">
-      <DependentUpon>201407081527098_Address.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201407090058580_StreetAddress.cs" />
-    <Compile Include="Migrations\201407090058580_StreetAddress.Designer.cs">
-      <DependentUpon>201407090058580_StreetAddress.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201407090102188_City.cs" />
-    <Compile Include="Migrations\201407090102188_City.Designer.cs">
-      <DependentUpon>201407090102188_City.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201407090103063_ZipCode.cs" />
-    <Compile Include="Migrations\201407090103063_ZipCode.Designer.cs">
-      <DependentUpon>201407090103063_ZipCode.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201407090107029_ZipCode1.cs" />
-    <Compile Include="Migrations\201407090107029_ZipCode1.Designer.cs">
-      <DependentUpon>201407090107029_ZipCode1.cs</DependentUpon>
+    <Compile Include="Migrations\201407090515438_FirstName.cs" />
+    <Compile Include="Migrations\201407090515438_FirstName.Designer.cs">
+      <DependentUpon>201407090515438_FirstName.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -270,32 +238,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201407071945542_InitialCreate.resx">
-      <DependentUpon>201407071945542_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201407072217364_FirstName.resx">
-      <DependentUpon>201407072217364_FirstName.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201407072222363_LastName.resx">
-      <DependentUpon>201407072222363_LastName.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201407072230229_PhoneNumber.resx">
-      <DependentUpon>201407072230229_PhoneNumber.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201407081527098_Address.resx">
-      <DependentUpon>201407081527098_Address.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201407090058580_StreetAddress.resx">
-      <DependentUpon>201407090058580_StreetAddress.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201407090102188_City.resx">
-      <DependentUpon>201407090102188_City.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201407090103063_ZipCode.resx">
-      <DependentUpon>201407090103063_ZipCode.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201407090107029_ZipCode1.resx">
-      <DependentUpon>201407090107029_ZipCode1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201407090515438_FirstName.resx">
+      <DependentUpon>201407090515438_FirstName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

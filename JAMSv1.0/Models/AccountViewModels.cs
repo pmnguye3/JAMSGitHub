@@ -92,6 +92,9 @@ namespace JAMSv1._0.Models
         [Required]
         [Display(Name = "City")]
         public string City { get; set; }
+        [Required]
+        [Display(Name = "State")]
+        public string State { get; set; }
 
         [Required]
         [Display(Name = "Zip Code")]

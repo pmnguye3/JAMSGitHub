@@ -7,13 +7,13 @@ namespace JAMSv1._0.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class PhoneNumber : IMigrationMetadata
+    public sealed partial class FirstName : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(PhoneNumber));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(FirstName));
         
         string IMigrationMetadata.Id
         {
-            get { return "201407072230229_PhoneNumber"; }
+            get { return "201407090515438_FirstName"; }
         }
         
         string IMigrationMetadata.Source

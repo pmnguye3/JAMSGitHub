@@ -26,7 +26,9 @@ namespace JAMSv1._0.Controllers
                     var fileName = Path.GetFileName(resume.File.FileName);
                     var path = Path.Combine(Server.MapPath("~/Content/Resumes"), fileName);
                     resume.File.SaveAs(path);
+                    
                 }
+                TempData["notice"] = "Resume Added";
                 return RedirectToAction("Index");
             }
             catch (Exception)
