@@ -6,10 +6,40 @@
  * Based on Bootstrap
 *//*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 
+  h2
+{
+    color: #333333; 
+    font-size: #000000; 
+}
+
+
+
+.lead2
+{
+    color: #333333;
+}
+
+input[type="file"], textarea
+ {
+
+  background-color : #ddd; 
+  color: #333333; 
+
+}
+
+input[type="submit"], textarea
+ {
+
+  background-color : #ddd; 
+  color: #333333; 
+
+}
+
 .sogeti img {
     padding-top: 60px; 
 height: 100px; 
 width: auto; 
+padding-left: 114px; 
 } 
   
   
