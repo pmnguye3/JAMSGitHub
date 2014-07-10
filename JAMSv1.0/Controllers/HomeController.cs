@@ -37,7 +37,7 @@ namespace JAMSv1._0.Controllers
             } 
         }
 
-        public ActionResult About()
+        public ActionResult Upload()
         {
             ViewBag.Message = "Your application description page.";
 
