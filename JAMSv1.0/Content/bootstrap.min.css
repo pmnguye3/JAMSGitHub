@@ -11,21 +11,12 @@
     padding-left: 30px;  
 }
 
-.entry-summary
-{
-    text-align: center; 
-}
 
-.entry-summary
-{
-border-style: dotted;  
-border-color: #dd4814; 
-}
 
   h2
 {
     color: #333333; 
-    font-size: #000000; 
+    /*font-size: #000000;*/ 
 }
 
 
