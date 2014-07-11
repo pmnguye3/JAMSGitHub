@@ -22,16 +22,16 @@
 input[type="file"], textarea
  {
 
-  background-color : #ddd; 
-  color: #333333; 
+  background-color : #f41; 
+  color: white; 
 
 }
 
 input[type="submit"], textarea
  {
 
-  background-color : #ddd; 
-  color: #333333; 
+  background-color : #f41; 
+  color: white; 
 
 }
 
