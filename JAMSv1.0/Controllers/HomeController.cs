@@ -17,7 +17,7 @@ namespace JAMSv1._0.Controllers
 
         [HttpPost]
         [Authorize]
-        public ActionResult Index(Resume resume)
+        public ActionResult Upload(Resume resume)
         {
             try
             {
@@ -29,18 +29,17 @@ namespace JAMSv1._0.Controllers
                     
                 }
                 TempData["notice"] = "Resume Added";
-                return RedirectToAction("Index");
+                return RedirectToAction("Upload");
             }
             catch (Exception)
             {
-                return View();
+                ViewBag.Message = "Upload Error";
+                return View("Upload");
             } 
         }
 
         public ActionResult Upload()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
