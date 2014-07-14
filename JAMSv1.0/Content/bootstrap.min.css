@@ -48,12 +48,31 @@ input[type="submit"], textarea
 
 }
 
+.sogeti
+{
+    padding-top: 20px; 
+}
+
 .sogeti img {
     padding-top: 60px; 
 height: 100px; 
 width: auto; 
-padding-left: 114px; 
+padding-left: 100px; 
 } 
+
+
+
+.entry-summary 
+{
+    text-align: center; 
+    padding-top: 20px; 
+    padding-bottom: 20px; 
+}
+
+.entry-summary2
+{
+    padding-left: 20px; 
+}
   
   
   html
