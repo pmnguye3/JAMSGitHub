@@ -37,5 +37,7 @@ namespace JAMSv1._0.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<JAMSv1._0.Models.Question> Questions { get; set; }
     }
 }
