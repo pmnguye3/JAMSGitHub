@@ -143,7 +143,7 @@ namespace JAMSv1._0.Controllers
         }
         public ActionResult ThankYou()
         {
-            return View();
+            return View("ThankYou");
         }
     }
 }

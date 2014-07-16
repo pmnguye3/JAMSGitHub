@@ -1,18 +1,18 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Home";
 }
 
 <div class="entry-summary">
-    
+
     <p><img class="Working" alt="Working-at-Sogeti" src="~/Working-at-Sogeti-header.jpg" width="1100" height="275" /><br /></p>
 
 </div>
-<p>The IT industry is exciting, fast paced and highly rewarding. That&#8217;s also how people describe their careers at Sogeti.</p>
-  
-    <p>&nbsp;</p>
+<div class="col-md-offset-1">
+    <p>The IT industry is exciting, fast paced and highly rewarding. That&#8217;s also how people describe their careers at Sogeti.</p>
+
+    @*<p>&nbsp;</p>*@
     <p>At Sogeti, we pride ourselves on hiring the best and brightest talent across the country. We realize our team is our greatest strength, and as such we know making Sogeti a great place to work is a top priority.</p>
-    <p>&nbsp;</p>
+    @*<p>&nbsp;</p>*@
     <p>We are dedicated to the success of each person and committed to providing:</p>
     <ul>
         <li>An exciting, rewarding, and fun work environment.</li>
@@ -21,11 +21,11 @@
         <li>A highly competitive compensation package.</li>
         <li>A fun, team based approach—ensuring support is always available.</li>
     </ul>
-    <p>&nbsp;</p>
-    <p>Ready to join our team?  @Html.ActionLink("Register", "../Account/Register")&nbsp;&nbsp;And then upload your Resume.&nbsp;&nbsp;@Html.ActionLink("Upload", "Upload")</p>
+    @*<p>&nbsp;</p>*@
+    <p>Ready to join our team?  @Html.ActionLink("Register", "../Account/Register")&nbsp;&nbsp;@*And then upload your Resume.&nbsp;&nbsp;@Html.ActionLink("Upload", "Upload")</p>*@
     <p>Already Registered?  @Html.ActionLink("Login", "../Account/Login")</p>
-<p>@*<input type="submit" class="btn btn-default" id="Login" value="Login" />*@</p><!-- .entry-summary -->
-
+    <p>@*<input type="submit" class="btn btn-default" id="Login" value="Login" />*@</p><!-- .entry-summary -->
+</div>
 
 
 
