@@ -3,60 +3,63 @@
 @{
     ViewBag.Title = "Index";
 }
-
 <h2>Questions</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 
-    @{Random rnd = new Random();
-    int k;
-    for (int i = 0; i < 5; i++)
+@{Random rnd = new Random();
+int k;
+for (int i = 1; i < 6; i++)
+{
+    k = 3;//rnd.Next(0, 10);
+
+    foreach (var item in Model)
     {
-        k = 3;//rnd.Next(0, 10);
-
-        foreach (var item in Model)
+        if (item.QuestionID == k)
         {
-            if (item.QuestionID == k)
+            using (Html.BeginForm(null, null, new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
-                using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                {
-                    <p>
-                        @Html.DisplayNameFor(model => model.QuestionString)
-                        @Html.DisplayFor(modelItem => item.QuestionString)
-                    </p><p></p>
-    <p>
-        @Html.DisplayNameFor(model => model.Answer1)
-        @Html.RadioButtonFor(modelitem => item.Answer1, item.Answer1)
-        @Html.LabelFor(modelitem => item.Answer1, item.Answer1)
-    </p><p></p>
-    <p>
-        @Html.DisplayNameFor(model => model.Answer2)
-        @Html.RadioButtonFor(modelitem => item.Answer1, item.Answer2)
-        @Html.LabelFor(modelitem => item.Answer1, item.Answer2)
-    </p><p></p>
-    <p>
-        @Html.DisplayNameFor(model => model.Answer3)
-        @Html.RadioButtonFor(modelitem => item.Answer1, item.Answer3)
-        @Html.LabelFor(modelitem => item.Answer1, item.Answer3)
-    </p><p></p>
-    <p>
-        @Html.DisplayNameFor(model => model.Answer4)
-        @Html.RadioButtonFor(modelitem => item.Answer1, item.Answer4)
-        @Html.LabelFor(modelitem => item.Answer1, item.Answer4)
-    </p>
-                }
-
+                <p>
+                    @Html.DisplayNameFor(model => model.QuestionString)
+                    @{
+                         ViewBag.QuestionNumber = i + ":";
+                    }
+                    @ViewBag.QuestionNumber&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    @Html.DisplayFor(modelItem => item.QuestionString)
+                </p><p></p>
+                <p>
+                    @Html.DisplayNameFor(model => model.Answer1)
+                    @Html.RadioButtonFor(modelitem => item.Answer1, item.Answer1)
+                    @Html.LabelFor(modelitem => item.Answer1, item.Answer1)
+                </p><p></p>
+                <p>
+                    @Html.DisplayNameFor(model => model.Answer2)
+                    @Html.RadioButtonFor(modelitem => item.Answer1, item.Answer2)
+                    @Html.LabelFor(modelitem => item.Answer1, item.Answer2)
+                </p><p></p>
+                <p>
+                    @Html.DisplayNameFor(model => model.Answer3)
+                    @Html.RadioButtonFor(modelitem => item.Answer1, item.Answer3)
+                    @Html.LabelFor(modelitem => item.Answer1, item.Answer3)
+                </p><p></p>
+                <p>
+                    @Html.DisplayNameFor(model => model.Answer4)
+                    @Html.RadioButtonFor(modelitem => item.Answer1, item.Answer4)
+                    @Html.LabelFor(modelitem => item.Answer1, item.Answer4)
+                </p>
             }
+
         }
     }
-    <p>
-        <input type="submit" class="btn btn-default" value="Submit" />
-    </p>
+}
+                <p>
+                    <input type="submit" class="btn btn-default" value="Submit" />
+                </p>
 }
 
-        
+
 
 
 
