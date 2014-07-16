@@ -20,6 +20,24 @@ namespace JAMSv1._0.Controllers
             return View(db.Questions.ToList());
         }
 
+        [HttpPost]
+        public ActionResult Index(Question question)
+        {
+            if (ModelState.IsValid)
+            {
+                //foreach (Question q in question)
+                //{
+                //    var qId = q.QuestionID;
+                //    var selectedAnswer = q.SelectedAnswer;
+                //    // Save the data 
+
+                //}
+                return RedirectToAction("ThankYou"); //PRG Pattern
+            }
+            //reload questions
+            return View(question);
+        }
+
         // GET: Questions/Details/5
         public ActionResult Details(int? id)
         {
@@ -122,6 +140,10 @@ namespace JAMSv1._0.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public ActionResult ThankYou()
+        {
+            return View();
         }
     }
 }

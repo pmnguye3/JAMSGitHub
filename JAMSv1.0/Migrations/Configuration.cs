@@ -10,6 +10,7 @@ namespace JAMSv1._0.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true; //changed to true
+            AutomaticMigrationDataLossAllowed = true;
             ContextKey = "JAMSv1._0.Models.ApplicationDbContext";
         }
 
