@@ -158,6 +158,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccomplishmentsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\QuestionsController.cs" />
@@ -169,6 +170,7 @@
       <DependentUpon>201407090515438_FirstName.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Accomplishment.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Question.cs" />
@@ -233,6 +235,11 @@
     <Content Include="Views\Questions\Edit.cshtml" />
     <Content Include="Views\Questions\Index.cshtml" />
     <Content Include="Views\Questions\ThankYou.cshtml" />
+    <Content Include="Views\Accomplishments\Create.cshtml" />
+    <Content Include="Views\Accomplishments\Delete.cshtml" />
+    <Content Include="Views\Accomplishments\Details.cshtml" />
+    <Content Include="Views\Accomplishments\Edit.cshtml" />
+    <Content Include="Views\Accomplishments\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

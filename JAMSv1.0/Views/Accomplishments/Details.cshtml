@@ -1,0 +1,66 @@
+﻿@model JAMSv1._0.Models.Accomplishment
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Accomplishment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AccomplishmentDate1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccomplishmentDate1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Accomplishment1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Accomplishment1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccomplishmentDate2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccomplishmentDate2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Accomplishment2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Accomplishment2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccomplishmentDate3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccomplishmentDate3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Accomplishment3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Accomplishment3)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AccomplishmentID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

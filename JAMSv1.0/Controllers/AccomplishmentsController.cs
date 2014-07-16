@@ -10,125 +10,107 @@ using JAMSv1._0.Models;
 
 namespace JAMSv1._0.Controllers
 {
-    public class QuestionsController : Controller
+    public class AccomplishmentsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Questions
+        // GET: Accomplishments
         public ActionResult Index()
         {
-            return View(db.Questions.ToList());
+            return View(db.Accomplishments.ToList());
         }
 
-        [HttpPost]
-        public ActionResult Index(Question questions)
-        {
-            if (ModelState.IsValid)
-            {
-                //foreach (Question q in question)
-                //{
-                //    var qId = q.QuestionID;
-                //    var selectedAnswer = q.SelectedAnswer;
-                //    // Save the data 
-
-                //}
-                return RedirectToAction("ThankYou"); //PRG Pattern
-            }
-            //reload questions
-            return View("ThankYou");
-        }
-
-        // GET: Questions/Details/5
+        // GET: Accomplishments/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Question question = db.Questions.Find(id);
-            if (question == null)
+            Accomplishment accomplishment = db.Accomplishments.Find(id);
+            if (accomplishment == null)
             {
                 return HttpNotFound();
             }
-            return View(question);
+            return View(accomplishment);
         }
 
-        // GET: Questions/Create
+        // GET: Accomplishments/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Questions/Create
+        // POST: Accomplishments/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "QuestionID,QuestionString,Answer1,Answer2,Answer3,Answer4,CorrectAnswer")] Question question)
+        public ActionResult Create([Bind(Include = "AccomplishmentID,AccomplishmentDate1,Accomplishment1,AccomplishmentDate2,Accomplishment2,AccomplishmentDate3,Accomplishment3")] Accomplishment accomplishment)
         {
             if (ModelState.IsValid)
             {
-                db.Questions.Add(question);
+                db.Accomplishments.Add(accomplishment);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(question);
+            return View(accomplishment);
         }
 
-        // GET: Questions/Edit/5
+        // GET: Accomplishments/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Question question = db.Questions.Find(id);
-            if (question == null)
+            Accomplishment accomplishment = db.Accomplishments.Find(id);
+            if (accomplishment == null)
             {
                 return HttpNotFound();
             }
-            return View(question);
+            return View(accomplishment);
         }
 
-        // POST: Questions/Edit/5
+        // POST: Accomplishments/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "QuestionID,QuestionString,Answer1,Answer2,Answer3,Answer4,CorrectAnswer")] Question question)
+        public ActionResult Edit([Bind(Include = "AccomplishmentID,AccomplishmentDate1,Accomplishment1,AccomplishmentDate2,Accomplishment2,AccomplishmentDate3,Accomplishment3")] Accomplishment accomplishment)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(question).State = EntityState.Modified;
+                db.Entry(accomplishment).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(question);
+            return View(accomplishment);
         }
 
-        // GET: Questions/Delete/5
+        // GET: Accomplishments/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Question question = db.Questions.Find(id);
-            if (question == null)
+            Accomplishment accomplishment = db.Accomplishments.Find(id);
+            if (accomplishment == null)
             {
                 return HttpNotFound();
             }
-            return View(question);
+            return View(accomplishment);
         }
 
-        // POST: Questions/Delete/5
+        // POST: Accomplishments/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Question question = db.Questions.Find(id);
-            db.Questions.Remove(question);
+            Accomplishment accomplishment = db.Accomplishments.Find(id);
+            db.Accomplishments.Remove(accomplishment);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -140,10 +122,6 @@ namespace JAMSv1._0.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
-        }
-        public ActionResult ThankYou()
-        {
-            return View("ThankYou");
         }
     }
 }

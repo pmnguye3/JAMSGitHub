@@ -39,5 +39,7 @@ namespace JAMSv1._0.Models
         }
 
         public System.Data.Entity.DbSet<JAMSv1._0.Models.Question> Questions { get; set; }
+
+        public System.Data.Entity.DbSet<JAMSv1._0.Models.Accomplishment> Accomplishments { get; set; }
     }
 }
