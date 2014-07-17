@@ -6,6 +6,16 @@
  * Based on Bootstrap
 *//*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 
+.thankyou
+{
+    text-align: center; 
+}
+
+.sogetivideo
+{
+    text-align: center; 
+}
+
 .footer2
 {
    background: #f41; 
