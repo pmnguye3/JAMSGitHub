@@ -20,6 +20,7 @@
 {
    background: #f41; 
    color: white; 
+   margin-bottom: -25px !important;
 }
 
 .Working 
@@ -60,6 +61,7 @@ input[type="submit"], textarea
 
 .sogeti
 {
+    padding-left: 100px; 
     padding-top: 20px; 
 }
 
@@ -67,7 +69,6 @@ input[type="submit"], textarea
     padding-top: 60px; 
 height: 100px; 
 width: auto; 
-padding-left: 100px; 
 } 
 
 
