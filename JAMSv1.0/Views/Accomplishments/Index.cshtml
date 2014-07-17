@@ -10,24 +10,57 @@
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.AccomplishmentDate1)
+            <p>&nbsp;</p>
+            <br />
+            <textarea name="consider" id="consider" rows="1" cols="40"></textarea>
+            <br />
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Accomplishment1)
+            <p>&nbsp;</p>
+            <br />
+            <textarea name="consider" id="consider" rows="6" cols="70"></textarea>
+            <br />
+            <p>&nbsp;</p> <p>&nbsp;</p>
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AccomplishmentDate2)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Accomplishment2)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AccomplishmentDate3)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Accomplishment3)
-        </th>
-        <th></th>
-    </tr>
+
+        <table class="table">
+            <th>
+                @Html.DisplayNameFor(model => model.AccomplishmentDate2)
+                <p>&nbsp;</p>
+                <br />
+                <textarea name="consider" id="consider" rows="1" cols="40"></textarea>
+                <br />
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Accomplishment2)
+                <p>&nbsp;</p>
+                <br />
+                <textarea name="consider" id="consider" rows="6" cols="70"></textarea>
+                <br />
+                <p>&nbsp;</p> <p>&nbsp;</p>
+            </th>
+            </table>
+
+            <table class="table">
+                <th>
+                    @Html.DisplayNameFor(model => model.AccomplishmentDate3)
+                    <p>&nbsp;</p>
+                    <br />
+                    <textarea name="consider" id="consider" rows="1" cols="40"></textarea>
+                    <br />
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Accomplishment3)
+                    <p>&nbsp;</p>
+                    <br />
+                    <textarea name="consider" id="consider" rows="6" cols="70"></textarea>
+                    <br />
+                    <p>&nbsp;</p> <p>&nbsp;</p>
+                </th>
+                </table>
+                <th></th>
+</tr>
 
 @foreach (var item in Model) {
     <tr>
