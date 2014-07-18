@@ -12,11 +12,17 @@
             @Html.ActionLink("Create New", "Create")
             
             @{
-                Random rnd = new Random();
-                int k;
-                for (int i = 1; i < 6; i++)
+                Random rand = new Random();
+                List<int> numberList = new List<int>();
+                for (int i = 0; i < Model.Count(); i++)
                 {
-                    k = 3;//rnd.Next(0, 10);
+                    numberList.Add(i + 1);
+                }
+                for (int i = 0; i < 5; i++)
+                {
+                    var index = rand.Next() % numberList.Count();
+                    var k = numberList[index];
+                    numberList.RemoveAt(index);
 
                     foreach (var item in Model)
                     {
@@ -30,9 +36,7 @@
                                 <div class="form-group">
                                     <p>
                                         @Html.DisplayNameFor(model => model.QuestionString)
-                                        @{
-                                ViewBag.QuestionNumber = i + ":";
-                                        }
+                                        @{ViewBag.QuestionNumber = i+1 + ":";}
                                         @ViewBag.QuestionNumber&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         @Html.DisplayFor(modelItem => item.QuestionString)
                                     </p>
