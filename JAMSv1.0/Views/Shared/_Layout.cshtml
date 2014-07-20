@@ -32,9 +32,9 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Start Here", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     @*<li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -42,14 +42,30 @@
     </div>
     <div class="footer">
         @RenderBody()
-        <hr />
+        <margin-bottom: -25px !important;r />
     </div>
 
     <div class="footer2">
         <footer>
-            <p>&copy; @DateTime.Now.Year - JAMS@@Copyright</p>
-        </footer>
+            <p>
+                &copy; @DateTime.Now.Year - JAMS@@Copyright
+
+            </p>   
+            </footer>     
     </div>
+
+    <div class="footer3"
+         <footer>
+             
+             <a href="https://youtube.com/user/sogetiUSA" target="blank"> <img src="https://us.sogeti.com/wp-content/uploads/2014/04/Youtube-White.png" hspace="5" align="right"></a>
+
+             <a href="http://facebook.com/sogeti.usa" target="blank"> <img src="https://us.sogeti.com/wp-content/uploads/2014/04/Facebook-White.png" hspace="2" align="right"></a>
+
+             <a href="http://instagram.com/sogeti_usa" target="blank"> <img src="https://us.sogeti.com/wp-content/uploads/2014/04/Instagram-White.png" hspace="2" align="right"></a>
+
+             <a href="http://twitter.com/sogeti_usa" target="blank"> <img src="https://us.sogeti.com/wp-content/uploads/2014/04/Twitter_White.png" hspace="5" align="right"></a>
+         
+         </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
