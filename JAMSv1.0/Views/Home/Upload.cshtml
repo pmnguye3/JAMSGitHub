@@ -23,8 +23,7 @@
         if (TempData["notice"] != null)
         {
             <p>@TempData["notice"]</p>
-            <p>@Html.ActionLink("Continue to Accomplishments", "../Accomplishments/Create")</p>
-            <p><input type="submit" class="btn btn-default" id="Next" value="Next" /></p>
+            <p><button onclick="location.href='@Url.Action("Create", "Accomplishments")';return false;">Continue To Accomplishments</button></p>
         }
     }
 </div>

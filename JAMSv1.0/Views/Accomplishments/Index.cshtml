@@ -14,87 +14,53 @@
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.AccomplishmentDate1)
-            <p>&nbsp;</p>
-            <br />
-            <textarea name="consider" id="consider" rows="1" cols="40"></textarea>
-            <br />
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Accomplishment1)
-            <p>&nbsp;</p>
-            <br />
-            <textarea name="consider" id="consider" rows="6" cols="70"></textarea>
-            <br />
-            <p>&nbsp;</p> <p>&nbsp;</p>
         </th>
-
-        <table class="table">
-            <th>
-                @Html.DisplayNameFor(model => model.AccomplishmentDate2)
-                <p>&nbsp;</p>
-                <br />
-                <textarea name="consider" id="consider" rows="1" cols="40"></textarea>
-                <br />
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Accomplishment2)
-                <p>&nbsp;</p>
-                <br />
-                <textarea name="consider" id="consider" rows="6" cols="70"></textarea>
-                <br />
-                <p>&nbsp;</p> <p>&nbsp;</p>
-            </th>
-            </table>
-
-            <table class="table">
-                <th>
-                    @Html.DisplayNameFor(model => model.AccomplishmentDate3)
-                    <p>&nbsp;</p>
-                    <br />
-                    <textarea name="consider" id="consider" rows="1" cols="40"></textarea>
-                    <br />
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Accomplishment3)
-                    <p>&nbsp;</p>
-                    <br />
-                    <textarea name="consider" id="consider" rows="6" cols="70"></textarea>
-                    <br />
-                    <p>&nbsp;</p> <p>&nbsp;</p>
-                </th>
-                </table>
-                <th></th>
-</tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.AccomplishmentDate1)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Accomplishment1)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AccomplishmentDate2)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Accomplishment2)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AccomplishmentDate3)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Accomplishment3)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.AccomplishmentID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.AccomplishmentID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.AccomplishmentID })
-        </td>
+        <th>
+            @Html.DisplayNameFor(model => model.AccomplishmentDate2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Accomplishment2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccomplishmentDate3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Accomplishment3)
+        </th>
+        <th></th>
     </tr>
-}
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccomplishmentDate1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Accomplishment1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccomplishmentDate2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Accomplishment2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccomplishmentDate3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Accomplishment3)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.AccomplishmentID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.AccomplishmentID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.AccomplishmentID })
+            </td>
+        </tr>
+    }
 
 </table>
-<p>
-    @Html.ActionLink("Contine To Questions", "../Questions")
-</p>
+<p><button onclick="location.href='@Url.Action("Index", "Questions")';return false;">Continue To Prescreening</button></p>

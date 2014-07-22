@@ -1,10 +1,7 @@
-﻿using JAMSv1._0.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System;
 using System.IO;
+using System.Web.Mvc;
+using JAMSv1._0.Models;
 
 namespace JAMSv1._0.Controllers
 {
@@ -17,16 +14,19 @@ namespace JAMSv1._0.Controllers
 
         [HttpPost]
         [Authorize]
-        public ActionResult Upload(Resume resume)
+        public ActionResult Upload(Resume resume, string command)
         {
+            if (command == "Next")
+            {
+                RedirectToAction("Create", "Accomplishments");
+            }
             try
             {
                 if (resume.File.ContentLength > 0)
                 {
-                    var fileName = Path.GetFileName(resume.File.FileName);
-                    var path = Path.Combine(Server.MapPath("~/Content/Resumes"), fileName);
+                    string fileName = Path.GetFileName(resume.File.FileName);
+                    string path = Path.Combine(Server.MapPath("~/Content/Resumes"), fileName);
                     resume.File.SaveAs(path);
-                    
                 }
                 TempData["notice"] = "Resume Added";
                 return RedirectToAction("Upload");
@@ -35,7 +35,7 @@ namespace JAMSv1._0.Controllers
             {
                 ViewBag.Message = "Upload Error";
                 return View("Upload");
-            } 
+            }
         }
 
         public ActionResult Upload()
