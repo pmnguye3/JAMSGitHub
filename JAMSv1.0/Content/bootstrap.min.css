@@ -100,7 +100,7 @@ width: auto;
 }
 
 #progressbar > div {
-   background-color: orange;
+   background-color: #7FFF00;
    width: 40%; /* Adjust with JavaScript */
    height: 20px;
    border-radius: 10px;
