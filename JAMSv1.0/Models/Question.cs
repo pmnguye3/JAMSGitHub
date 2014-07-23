@@ -28,5 +28,8 @@ namespace JAMSv1._0.Models
         [Display(Name = "Correct Answer")]
         [Required]
         public string CorrectAnswer { get; set; }
+
+        [Display(Name = "Selected Answer")]
+        public string SelectedAnswer { get; set; }
     }
 }
