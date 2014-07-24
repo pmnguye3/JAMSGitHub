@@ -17,25 +17,47 @@ namespace JAMSv1._0.Controllers
         // GET: Questions
         public ActionResult Index()
         {
-            return View(db.Questions.ToList());
+            Quiz newQuiz = new Quiz();
+            //newQuiz.Questions = db.Questions.ToList();
+            Random rand = new Random();
+            //List<int> numberList = new List<int>();
+            //for (int i = 0; i < newQuiz.Questions.Count(); i++)
+            //{
+            //    numberList.Add(i + 1);
+            //}
+            for (int i = 0; i < 5; i++)
+            {
+                var index = rand.Next()%db.Questions.ToList().Count();
+                var k = db.Questions.ToList()[index];
+                db.Questions.ToList().RemoveAt(index);
+
+                foreach (var question in db.Questions.ToList())
+                {
+                    if (question == k)
+                    {
+                        newQuiz.Questions.Add(question);
+                    }
+                }
+            }
+            return View(newQuiz);
         }
 
         [HttpPost]
-        public ActionResult Index(Question questions)
+        public ActionResult Index(Quiz model)
         {
             if (ModelState.IsValid)
             {
-                //foreach (Question q in question)
-                //{
-                //    var qId = q.QuestionID;
-                //    var selectedAnswer = q.SelectedAnswer;
-                //    // Save the data 
-
-                //}
+                foreach (Question q in model.Questions)
+                {
+                    if (q.SelectedAnswer == q.CorrectAnswer)
+                    {
+                        model.rightAnswers++;
+                    }
+                }
                 return RedirectToAction("ThankYou"); //PRG Pattern
             }
             //reload questions
-            return View("ThankYou");
+            return View("Index");
         }
 
         // GET: Questions/Details/5
@@ -64,7 +86,9 @@ namespace JAMSv1._0.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "QuestionID,QuestionString,Answer1,Answer2,Answer3,Answer4,CorrectAnswer")] Question question)
+        public ActionResult Create(
+            [Bind(Include = "QuestionID,QuestionString,Answer1,Answer2,Answer3,Answer4,CorrectAnswer")] Question
+                question)
         {
             if (ModelState.IsValid)
             {
@@ -96,7 +120,9 @@ namespace JAMSv1._0.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "QuestionID,QuestionString,Answer1,Answer2,Answer3,Answer4,CorrectAnswer")] Question question)
+        public ActionResult Edit(
+            [Bind(Include = "QuestionID,QuestionString,Answer1,Answer2,Answer3,Answer4,CorrectAnswer")] Question
+                question)
         {
             if (ModelState.IsValid)
             {
@@ -141,6 +167,7 @@ namespace JAMSv1._0.Controllers
             }
             base.Dispose(disposing);
         }
+
         public ActionResult ThankYou()
         {
             return View("ThankYou");

@@ -178,6 +178,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Question.cs" />
+    <Compile Include="Models\Quiz.cs" />
     <Compile Include="Models\Resume.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -245,6 +246,7 @@
     <Content Include="Views\Accomplishments\Details.cshtml" />
     <Content Include="Views\Accomplishments\Edit.cshtml" />
     <Content Include="Views\Accomplishments\Index.cshtml" />
+    <Content Include="Views\Questions\EditorTemplates\Question.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
