@@ -1,0 +1,21 @@
+﻿@model JAMSv1._0.Models.Question
+<div>
+    <h4> @Model.QuestionString </h4>
+    <p>
+        @Html.RadioButtonFor(modelItem => modelItem.SelectedAnswer, Model.Answer1)
+        @Html.LabelFor(modelItem => modelItem.Answer1, Model.Answer1)
+    </p>
+    <p>
+        @Html.RadioButtonFor(modelItem => modelItem.SelectedAnswer, Model.Answer2)
+        @Html.LabelFor(modelItem => modelItem.Answer2, Model.Answer2)
+    </p>
+    <p>
+        @Html.RadioButtonFor(modelItem => modelItem.SelectedAnswer, Model.Answer3)
+        @Html.LabelFor(modelItem => modelItem.Answer3, Model.Answer3)
+    </p>
+    <p>
+        @Html.RadioButtonFor(modelItem => modelItem.SelectedAnswer, Model.Answer4)
+        @Html.LabelFor(modelItem => modelItem.Answer4, Model.Answer4)
+    </p>
+
+</div>
