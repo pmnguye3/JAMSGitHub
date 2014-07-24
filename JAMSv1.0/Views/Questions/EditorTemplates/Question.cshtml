@@ -1,5 +1,12 @@
 ﻿@model JAMSv1._0.Models.Question
 <div>
+    @Html.HiddenFor(modelItem => modelItem.QuestionID)
+    @Html.HiddenFor(modelItem => modelItem.CorrectAnswer)
+    @Html.HiddenFor(modelItem => modelItem.Answer1)
+    @Html.HiddenFor(modelItem => modelItem.Answer2)
+    @Html.HiddenFor(modelItem => modelItem.Answer3)
+    @Html.HiddenFor(modelItem => modelItem.Answer4)
+    @Html.HiddenFor(modelItem => modelItem.QuestionString)
     <h4> @Model.QuestionString </h4>
     <p>
         @Html.RadioButtonFor(modelItem => modelItem.SelectedAnswer, Model.Answer1)
@@ -17,5 +24,4 @@
         @Html.RadioButtonFor(modelItem => modelItem.SelectedAnswer, Model.Answer4)
         @Html.LabelFor(modelItem => modelItem.Answer4, Model.Answer4)
     </p>
-
 </div>

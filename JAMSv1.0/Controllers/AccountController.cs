@@ -93,7 +93,7 @@ namespace JAMSv1._0.Controllers
             {
                 var user = new ApplicationUser()
                 {
-                    UserName = model.FirstName,
+                    UserName = model.Email,
                     Email = model.Email,
                     FirstName = model.FirstName,
                     LastName = model.LastName,
