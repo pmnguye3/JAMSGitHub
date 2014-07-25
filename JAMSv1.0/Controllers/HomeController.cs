@@ -9,7 +9,7 @@ namespace JAMSv1._0.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return View(); 
         }
 
         [HttpPost]
@@ -28,7 +28,7 @@ namespace JAMSv1._0.Controllers
                     string path = Path.Combine(Server.MapPath("~/Content/Resumes"), fileName);
                     resume.File.SaveAs(path);
                 }
-                TempData["notice"] = "Resume Added "+ resume.File.FileName;
+                TempData["notice"] = "Resume Added:  "+ resume.File.FileName;
                 return View(resume);
             }
             catch (Exception)

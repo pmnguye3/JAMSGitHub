@@ -20,6 +20,7 @@
 .sogetivideo
 {
     text-align: center; 
+    padding-bottom: 20px; 
 }
 
 .footer2
@@ -100,11 +101,25 @@ width: auto;
 }
 
 #progressbar > div {
-   background-color: #7FFF00;
+   background-color: #f31717;
    width: 40%; /* Adjust with JavaScript */
    height: 20px;
    border-radius: 10px;
 }  
+
+#progressbarone {
+  background-color: black;
+  border-radius: 13px; /* (height of inner div) / 2 + padding */
+  padding: 3px;
+}
+
+#progressbarone > div {
+   background-color: #14d312;
+   width: 40%; /* Adjust with JavaScript */
+   height: 20px;
+   border-radius: 10px;
+}  
+ 
 
   html
   {
