@@ -54,10 +54,10 @@ namespace JAMSv1._0.Controllers
                         model.rightAnswers++;
                     }
                 }
-                return RedirectToAction("ThankYou"); //PRG Pattern
+                return RedirectToAction("ThankYou"); 
             }
-            //reload questions
-            return View("Index");
+            
+            return View(model);
         }
 
         // GET: Questions/Details/5

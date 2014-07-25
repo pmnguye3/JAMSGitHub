@@ -28,8 +28,8 @@ namespace JAMSv1._0.Controllers
                     string path = Path.Combine(Server.MapPath("~/Content/Resumes"), fileName);
                     resume.File.SaveAs(path);
                 }
-                TempData["notice"] = "Resume Added";
-                return RedirectToAction("Upload");
+                TempData["notice"] = "Resume Added "+ resume.File.FileName;
+                return View(resume);
             }
             catch (Exception)
             {
