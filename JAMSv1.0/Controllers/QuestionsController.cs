@@ -45,6 +45,8 @@ namespace JAMSv1._0.Controllers
         }
 
         [HttpPost]
+
+        //the HttpPostedFileBase File is the "resume" object that we are passing in. I think its not passing in correctly thats why the resume won't attach.
         public ActionResult Index(Quiz model, HttpPostedFileBase File)
         {
             if (ModelState.IsValid)
