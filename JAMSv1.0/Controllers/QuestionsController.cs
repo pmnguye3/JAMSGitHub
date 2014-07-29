@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using JAMSv1._0.Models;
@@ -54,7 +56,20 @@ namespace JAMSv1._0.Controllers
                         model.rightAnswers++;
                     }
                 }
-                return RedirectToAction("ThankYou"); 
+
+                //Auto send email like a boss.
+                using (MailMessage mail = new MailMessage())
+                {
+                    var client = new SmtpClient("smtp.gmail.com", 587)
+                    {
+                        Credentials = new NetworkCredential("jams.cis440@gmail.com", "whatalegitpassword"),
+                        EnableSsl = true
+                    };
+                    //client.Send("From", "To", "Subject", "Body");
+                    client.Send("jams.cis440@gmail.com", "jams.cis440@gmail.com", "Testing auto send email", "testbody");
+                    return RedirectToAction("ThankYou");
+                }
+                
             }
             
             return View(model);
