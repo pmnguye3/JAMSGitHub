@@ -45,7 +45,7 @@ namespace JAMSv1._0.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(Quiz model)
+        public ActionResult Index(Quiz model, HttpPostedFileBase File)
         {
             if (ModelState.IsValid)
             {
@@ -58,15 +58,21 @@ namespace JAMSv1._0.Controllers
                 }
 
                 //Auto send email like a boss.
-                using (MailMessage mail = new MailMessage())
+                using (MailMessage mail = new MailMessage("jams.cis440@gmail.com", "jams.cis440@gmail.com"))
                 {
-                    var client = new SmtpClient("smtp.gmail.com", 587)
+                    mail.Body = "Test Email Body";
+                    mail.Subject = "Test Email Subject";
+                    if (File != null)
                     {
-                        Credentials = new NetworkCredential("jams.cis440@gmail.com", "whatalegitpassword"),
-                        EnableSsl = true
-                    };
-                    //client.Send("From", "To", "Subject", "Body");
-                    client.Send("jams.cis440@gmail.com", "jams.cis440@gmail.com", "Testing auto send email", "testbody");
+                        string fileName = Path.GetFileName(File.FileName);
+                        mail.Attachments.Add(new Attachment(File.InputStream, fileName));
+
+                    }
+                    SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+                    smtp.EnableSsl = true;
+                    smtp.UseDefaultCredentials = true;
+                    smtp.Credentials = new NetworkCredential("jams.cis440@gmail.com", "whatalegitpassword");
+                    smtp.Send(mail);
                     return RedirectToAction("ThankYou");
                 }
                 
