@@ -10,17 +10,27 @@ using JAMSv1._0.Models;
 
 namespace JAMSv1._0.Controllers
 {
+    /// <summary>
+    /// Controller for Accomplishments with CRUD functionality
+    /// </summary>
     public class AccomplishmentsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Accomplishments
+        /// <summary>
+        /// GET: Accomplishments/Index
+        /// </summary>
+        /// <returns>View list of accomplishments</returns>
         public ActionResult Index()
         {
             return View(db.Accomplishments.ToList());
         }
 
-        // GET: Accomplishments/Details/5
+        /// <summary>
+        /// GET: Accomplishments/Details
+        /// </summary>
+        /// <param name="id">Accomplishment ID</param>
+        /// <returns>Accomplishment Details</returns>
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -35,15 +45,20 @@ namespace JAMSv1._0.Controllers
             return View(accomplishment);
         }
 
-        // GET: Accomplishments/Create
+        /// <summary>
+        /// GET: Accomplishments/Create
+        /// </summary>
+        /// <returns>Create view</returns>
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Accomplishments/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// POST: Accomplishments/Create
+        /// </summary>
+        /// <param name="accomplishment">Stores user input</param>
+        /// <returns>View to Index</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "AccomplishmentID,AccomplishmentDate1,Accomplishment1,AccomplishmentDate2,Accomplishment2,AccomplishmentDate3,Accomplishment3")] Accomplishment accomplishment)
@@ -58,7 +73,11 @@ namespace JAMSv1._0.Controllers
             return View(accomplishment);
         }
 
-        // GET: Accomplishments/Edit/5
+        /// <summary>
+        /// GET: Accomplishments/Edit/
+        /// </summary>
+        /// <param name="id">Accomplishment Id</param>
+        /// <returns>Details of the Accomplishment</returns>
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -73,9 +92,11 @@ namespace JAMSv1._0.Controllers
             return View(accomplishment);
         }
 
-        // POST: Accomplishments/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// POST: Accomplishments/Edit/
+        /// </summary>
+        /// <param name="accomplishment">User Input</param>
+        /// <returns>View to Index</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "AccomplishmentID,AccomplishmentDate1,Accomplishment1,AccomplishmentDate2,Accomplishment2,AccomplishmentDate3,Accomplishment3")] Accomplishment accomplishment)
@@ -89,7 +110,11 @@ namespace JAMSv1._0.Controllers
             return View(accomplishment);
         }
 
-        // GET: Accomplishments/Delete/5
+        /// <summary>
+        /// GET: Accomplishments/Delete/
+        /// </summary>
+        /// <param name="id">Accomplishment Id</param>
+        /// <returns>Accomplishment Index</returns>
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -104,7 +129,12 @@ namespace JAMSv1._0.Controllers
             return View(accomplishment);
         }
 
-        // POST: Accomplishments/Delete/5
+        /// <summary>
+        /// POST: Accomplishments/Delete
+        /// </summary>
+        /// <param name="id">Accomplishment Id</param>
+        /// <returns>View to Index</returns>
+ 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -114,7 +144,10 @@ namespace JAMSv1._0.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
+        /// <summary>
+        /// Dispose of Accomplishment
+        /// </summary>
+        /// <param name="disposing">Accomplishment to Dispose</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing)

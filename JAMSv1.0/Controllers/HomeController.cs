@@ -5,13 +5,35 @@ using JAMSv1._0.Models;
 
 namespace JAMSv1._0.Controllers
 {
+    /// <summary>
+    /// Controller that holds home page functionality
+    /// </summary>
     public class HomeController : Controller
     {
+        /// <summary>
+        /// GET: /Home/Register
+        /// </summary>
+        /// <returns>View of index</returns>
         public ActionResult Index()
         {
             return View(); 
         }
 
+        /// <summary>
+        /// GET: /Home/Upload
+        /// </summary>
+        /// <returns>View of upload</returns>
+        public ActionResult Upload()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// POST: /Home/Upload
+        /// </summary>
+        /// <param name="resume">Resume</param>
+        /// <param name="command">string</param>
+        /// <returns>Resume added and continue</returns>
         [HttpPost]
         [Authorize]
         public ActionResult Upload(Resume resume, string command)
@@ -38,11 +60,10 @@ namespace JAMSv1._0.Controllers
             }
         }
 
-        public ActionResult Upload()
-        {
-            return View();
-        }
-
+        /// <summary>
+        /// Contact page (unused)
+        /// </summary>
+        /// <returns>View of contact</returns>
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";

@@ -5,7 +5,7 @@
 @Html.ActionLink("Create New Role", "Create") | @Html.ActionLink("Manage User Role", "ManageUserRoles")
 <hr />
 <h2>Role Add to User</h2>
-@using (Html.BeginForm("RoleAddToUser", "Roles"))
+@using (Html.BeginForm("AddUserRoles", "Roles"))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
@@ -39,7 +39,7 @@
 }
 <hr />
 <h3>Delete A User from a Role</h3>
-@using (Html.BeginForm("DeleteRoleForUser", "Roles"))
+@using (Html.BeginForm("DeleteUserRoles", "Roles"))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)

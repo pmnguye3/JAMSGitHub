@@ -13,8 +13,10 @@ namespace JAMSv1._0.Controllers
     {
         private ApplicationDbContext context = new ApplicationDbContext();
 
-        //
-        // GET: /Roles/
+        /// <summary>
+        /// GET: /Roles/Index
+        /// </summary>
+        /// <returns>View of roles index</returns>
         [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
@@ -22,16 +24,21 @@ namespace JAMSv1._0.Controllers
             return View(roles);
         }
 
-        //
-        // GET: /Roles/Create
+        /// <summary>
+        /// GET: /Roles/Create
+        /// </summary>
+        /// <returns>View of roles create</returns>
         [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
         }
 
-        //
-        // POST: /Roles/Create
+        /// <summary>
+        /// POST: /Roles/Create
+        /// </summary>
+        /// <param name="collection">Form collection</param>
+        /// <returns>View of roles index</returns>
         [HttpPost]
         [Authorize(Roles = "Admin")]
         public ActionResult Create(FormCollection collection)
@@ -52,7 +59,11 @@ namespace JAMSv1._0.Controllers
             }
         }
 
-        // GET: /Roles/Edit/5
+        /// <summary>
+        /// GET: /Roles/Edit
+        /// </summary>
+        /// <param name="roleName">string</param>
+        /// <returns>View of selected role</returns>
         [Authorize(Roles = "Admin")]
         public ActionResult Edit(string roleName)
         {
@@ -61,8 +72,11 @@ namespace JAMSv1._0.Controllers
             return View(thisRole);
         }
 
-        //
-        // POST: /Roles/Edit/5
+        /// <summary>
+        /// POST: /Roles/Edit
+        /// </summary>
+        /// <param name="role">Identity role</param>
+        /// <returns>View of roles index</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
@@ -81,8 +95,11 @@ namespace JAMSv1._0.Controllers
             }
         }
 
-        //
-        // GET: /Roles/Delete/5
+        /// <summary>
+        /// GET: /Roles/Delete
+        /// </summary>
+        /// <param name="RoleName">string</param>
+        /// <returns>View of roles index</returns>
         [Authorize(Roles = "Admin")]
         public ActionResult Delete(string RoleName)
         {
@@ -91,6 +108,11 @@ namespace JAMSv1._0.Controllers
             context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        /// <summary>
+        /// GET: /Roles/ManageUserRoles
+        /// </summary>
+        /// <returns>View of manage user roles</returns>
         [Authorize(Roles = "Admin")]
         public ActionResult ManageUserRoles()
         {
@@ -99,10 +121,16 @@ namespace JAMSv1._0.Controllers
             return View();
         }
 
+        /// <summary>
+        /// POST: /Roles/AddUserRoles
+        /// </summary>
+        /// <param name="UserName">string</param>
+        /// <param name="RoleName">string</param>
+        /// <returns>View of manage user roles</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public ActionResult RoleAddToUser(string UserName, string RoleName)
+        public ActionResult AddUserRoles(string UserName, string RoleName)
         {
             ApplicationUser user = context.Users.Where(u => u.UserName.Equals(UserName, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
             var account = new AccountController();
@@ -117,6 +145,11 @@ namespace JAMSv1._0.Controllers
             return View("ManageUserRoles");
         }
 
+        /// <summary>
+        /// POST: /Roles/GetRoles
+        /// </summary>
+        /// <param name="UserName">string</param>
+        /// <returns>View of manage user roles</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
@@ -137,10 +170,16 @@ namespace JAMSv1._0.Controllers
             return View("ManageUserRoles");
         }
 
+        /// <summary>
+        /// POST: /Roles/DeleteUserRoles
+        /// </summary>
+        /// <param name="UserName">string</param>
+        /// <param name="RoleName">string</param>
+        /// <returns>View of manage user roles</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public ActionResult DeleteRoleForUser(string UserName, string RoleName)
+        public ActionResult DeleteUserRoles(string UserName, string RoleName)
         {
             var account = new AccountController();
             ApplicationUser user = context.Users.Where(u => u.UserName.Equals(UserName, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();

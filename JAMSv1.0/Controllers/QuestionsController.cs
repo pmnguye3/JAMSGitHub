@@ -12,11 +12,17 @@ using JAMSv1._0.Models;
 
 namespace JAMSv1._0.Controllers
 {
+    /// <summary>
+    /// Controller for questions and quiz functionality
+    /// </summary>
     public class QuestionsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Questions
+        /// <summary>
+        /// GET: Questions/Index
+        /// </summary>
+        /// <returns>View of index with quiz questions</returns>
         public ActionResult Index()
         {
             Quiz newQuiz = new Quiz();
@@ -39,8 +45,13 @@ namespace JAMSv1._0.Controllers
             return View(newQuiz);
         }
 
+        /// <summary>
+        /// POST: Questions/Index
+        /// </summary>
+        /// <param name="model">Quiz model</param>
+        /// <param name="File">Resume file</param>
+        /// <returns>Thank you page</returns>
         [HttpPost]
-
         //the HttpPostedFileBase File is the "resume" object that we are passing in. I think its not passing in correctly thats why the resume won't attach.
         public ActionResult Index(Quiz model, HttpPostedFileBase File)
         {
@@ -78,7 +89,11 @@ namespace JAMSv1._0.Controllers
             return View(model);
         }
 
-        // GET: Questions/Details/5
+        /// <summary>
+        /// GET: Questions/Details
+        /// </summary>
+        /// <param name="id">Question id</param>
+        /// <returns>Question detail</returns>
         [Authorize(Roles = "Admin")]
         public ActionResult Details(int? id)
         {
@@ -94,16 +109,21 @@ namespace JAMSv1._0.Controllers
             return View(question);
         }
 
-        // GET: Questions/Create
+        /// <summary>
+        /// GET: Questions/Create
+        /// </summary>
+        /// <returns>Create view</returns>
         [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Questions/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// POST: Questions/Create
+        /// </summary>
+        /// <param name="question">Question</param>
+        /// <returns>View of index</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
@@ -121,7 +141,11 @@ namespace JAMSv1._0.Controllers
             return View(question);
         }
 
-        // GET: Questions/Edit/5
+        /// <summary>
+        /// GET: Questions/Edit
+        /// </summary>
+        /// <param name="id">Question id</param>
+        /// <returns>View of edit questions</returns>
         [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
@@ -137,9 +161,11 @@ namespace JAMSv1._0.Controllers
             return View(question);
         }
 
-        // POST: Questions/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// POST: Questions/Edit
+        /// </summary>
+        /// <param name="question">Question id</param>
+        /// <returns>View of question index</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
@@ -156,7 +182,11 @@ namespace JAMSv1._0.Controllers
             return View(question);
         }
 
-        // GET: Questions/Delete/5
+        /// <summary>
+        /// GET: Questions/Delete
+        /// </summary>
+        /// <param name="id">Question id</param>
+        /// <returns>View of question delete</returns>
         [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
@@ -172,7 +202,11 @@ namespace JAMSv1._0.Controllers
             return View(question);
         }
 
-        // POST: Questions/Delete/5
+        /// <summary>
+        /// POST: Questions/Delete
+        /// </summary>
+        /// <param name="id">Question id</param>
+        /// <returns>View of quesstions index</returns>
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
@@ -183,7 +217,10 @@ namespace JAMSv1._0.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
+        /// <summary>
+        /// GET: Questions/Dispose
+        /// </summary>
+        /// <param name="disposing">bool</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -192,11 +229,19 @@ namespace JAMSv1._0.Controllers
             }
             base.Dispose(disposing);
         }
-
+        /// <summary>
+        /// GET: Questions/ThankYou
+        /// </summary>
+        /// <returns>View of questions thankyou</returns>
         public ActionResult ThankYou()
         {
             return View("ThankYou");
         }
+
+        /// <summary>
+        /// GET: Questions/ListAllQuestions
+        /// </summary>
+        /// <returns>View of all questions</returns>
         [Authorize(Roles = "Admin")]
         public ActionResult ListAllQuestions()
         {
