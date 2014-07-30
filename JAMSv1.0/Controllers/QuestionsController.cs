@@ -200,7 +200,8 @@ namespace JAMSv1._0.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult ListAllQuestions()
         {
-            return View("ListAllQuestions");
+            List<Question> questions = db.Questions.ToList();
+            return View(questions);
         }
     }
 }

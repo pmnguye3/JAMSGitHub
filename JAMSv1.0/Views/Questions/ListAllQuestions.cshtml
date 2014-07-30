@@ -1,13 +1,23 @@
-﻿@model JAMSv1._0.Models.Question
+﻿@model IEnumerable<JAMSv1._0.Models.Question>
 @{
     ViewBag.Title = "ListAllQuestions";
 }
 
 <h2>List All Questions</h2>
+<table class="table">
+    @foreach (var item in Model)
+    {
 
-@foreach (var question in)
-{
-    
-}
-
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuestionString)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.QuestionID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.QuestionID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.QuestionID })
+            </td>
+        </tr>
+    }
+    </table>
 
