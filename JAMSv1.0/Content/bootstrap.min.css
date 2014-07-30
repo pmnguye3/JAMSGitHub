@@ -101,7 +101,7 @@ width: auto;
 }
 
 #progressbar > div {
-   background-color: #f31717;
+   background-color: #f41;
    width: 40%; /* Adjust with JavaScript */
    height: 20px;
    border-radius: 10px;
@@ -118,8 +118,7 @@ width: auto;
    width: 40%; /* Adjust with JavaScript */
    height: 20px;
    border-radius: 10px;
-}  
- 
+}   
 
   html
   {
