@@ -15,7 +15,7 @@ namespace JAMSv1._0.Controllers
     /// <summary>
     /// Controller for questions and quiz functionality
     /// </summary>
-    public class QuestionsController : Controller
+    public class QuestionsController : ApplicationController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 

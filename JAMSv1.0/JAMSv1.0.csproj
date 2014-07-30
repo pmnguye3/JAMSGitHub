@@ -164,6 +164,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccomplishmentsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ApplicationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\QuestionsController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
@@ -257,6 +258,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Resumes\" />
+    <Folder Include="Views\Application\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
