@@ -20,13 +20,8 @@ namespace JAMSv1._0.Controllers
         public ActionResult Index()
         {
             Quiz newQuiz = new Quiz();
-            //newQuiz.Questions = db.Questions.ToList();
             Random rand = new Random();
-            //List<int> numberList = new List<int>();
-            //for (int i = 0; i < newQuiz.Questions.Count(); i++)
-            //{
-            //    numberList.Add(i + 1);
-            //}
+
             for (int i = 0; i < 5; i++)
             {
                 var index = rand.Next()%db.Questions.ToList().Count();
@@ -84,6 +79,7 @@ namespace JAMSv1._0.Controllers
         }
 
         // GET: Questions/Details/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -99,6 +95,7 @@ namespace JAMSv1._0.Controllers
         }
 
         // GET: Questions/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
@@ -109,6 +106,7 @@ namespace JAMSv1._0.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create(
             [Bind(Include = "QuestionID,QuestionString,Answer1,Answer2,Answer3,Answer4,CorrectAnswer")] Question
                 question)
@@ -124,6 +122,7 @@ namespace JAMSv1._0.Controllers
         }
 
         // GET: Questions/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -143,6 +142,7 @@ namespace JAMSv1._0.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(
             [Bind(Include = "QuestionID,QuestionString,Answer1,Answer2,Answer3,Answer4,CorrectAnswer")] Question
                 question)
@@ -157,6 +157,7 @@ namespace JAMSv1._0.Controllers
         }
 
         // GET: Questions/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -174,6 +175,7 @@ namespace JAMSv1._0.Controllers
         // POST: Questions/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteConfirmed(int id)
         {
             Question question = db.Questions.Find(id);
@@ -194,6 +196,11 @@ namespace JAMSv1._0.Controllers
         public ActionResult ThankYou()
         {
             return View("ThankYou");
+        }
+        [Authorize(Roles = "Admin")]
+        public ActionResult ListAllQuestions()
+        {
+            return View("ListAllQuestions");
         }
     }
 }

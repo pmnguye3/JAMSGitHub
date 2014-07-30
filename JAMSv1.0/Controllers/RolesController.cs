@@ -15,6 +15,7 @@ namespace JAMSv1._0.Controllers
 
         //
         // GET: /Roles/
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             var roles = context.Roles.ToList();
@@ -23,6 +24,7 @@ namespace JAMSv1._0.Controllers
 
         //
         // GET: /Roles/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
@@ -31,6 +33,7 @@ namespace JAMSv1._0.Controllers
         //
         // POST: /Roles/Create
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create(FormCollection collection)
         {
             try
@@ -49,8 +52,8 @@ namespace JAMSv1._0.Controllers
             }
         }
 
-        //
         // GET: /Roles/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(string roleName)
         {
             var thisRole = context.Roles.Where(r => r.Name.Equals(roleName, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
@@ -62,6 +65,7 @@ namespace JAMSv1._0.Controllers
         // POST: /Roles/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(Microsoft.AspNet.Identity.EntityFramework.IdentityRole role)
         {
             try
@@ -79,6 +83,7 @@ namespace JAMSv1._0.Controllers
 
         //
         // GET: /Roles/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(string RoleName)
         {
             var thisRole = context.Roles.Where(r => r.Name.Equals(RoleName, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
@@ -86,7 +91,7 @@ namespace JAMSv1._0.Controllers
             context.SaveChanges();
             return RedirectToAction("Index");
         }
-
+        [Authorize(Roles = "Admin")]
         public ActionResult ManageUserRoles()
         {
             var list = context.Roles.OrderBy(r => r.Name).ToList().Select(rr => new SelectListItem { Value = rr.Name.ToString(), Text = rr.Name }).ToList();
@@ -96,6 +101,7 @@ namespace JAMSv1._0.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult RoleAddToUser(string UserName, string RoleName)
         {
             ApplicationUser user = context.Users.Where(u => u.UserName.Equals(UserName, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
@@ -113,6 +119,7 @@ namespace JAMSv1._0.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult GetRoles(string UserName)
         {
             if (!string.IsNullOrWhiteSpace(UserName))
@@ -132,6 +139,7 @@ namespace JAMSv1._0.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteRoleForUser(string UserName, string RoleName)
         {
             var account = new AccountController();
