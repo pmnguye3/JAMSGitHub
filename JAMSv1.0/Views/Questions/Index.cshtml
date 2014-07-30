@@ -49,44 +49,7 @@
             </script>
 
 
-            @using (Html.BeginForm())
-            {
-                @Html.EditorFor(x => x.Questions)
 
-                <input type="submit" id="submit" class="btn btn-default" value="Submit" />
-            }
-
-
-            <form action="ThankYou" name="counter">
-                <input type="text" size="8"
-                       name="d2">
-            </form>
-
-
-            <script type="text/javascript">
-                var minutes = 1
-                var seconds = 00
-                function SubmitForm() {
-                    $('#THANKYOU').submit();
-                }
-
-                document.counter.d2.value = '30:00'
-
-                function display() {
-                    if (seconds <= 0) {
-                        minutes -= 1
-                        seconds += 59
-                    }
-                    if (minutes <= -1) {
-                        document.counter.submit();
-                    }
-                    else
-                        seconds -= 1
-                    document.counter.d2.value = minutes + ":" + seconds
-                    setTimeout("display()", 1000)
-                }
-                display()
-            </script>
 
 
             @using (Html.BeginForm("ThankYou", "Questions", FormMethod.Post, new { ID = "THANKYOU"}))
