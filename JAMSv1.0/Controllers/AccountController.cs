@@ -17,28 +17,39 @@ namespace JAMSv1._0.Controllers
     [Authorize]
     public class AccountController : Controller
     {
-        private ApplicationUserManager _userManager;
-
         public AccountController()
+            : this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext())))
         {
         }
 
-        public AccountController(ApplicationUserManager userManager)
+        public AccountController(UserManager<ApplicationUser> userManager)
         {
             UserManager = userManager;
         }
 
-        public ApplicationUserManager UserManager
-        {
-            get
-            {
-                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            }
-            private set
-            {
-                _userManager = value;
-            }
-        }
+        public UserManager<ApplicationUser> UserManager { get; private set; }
+        //private ApplicationUserManager _userManager;
+
+        //public AccountController()
+        //{
+        //}
+
+        //public AccountController(ApplicationUserManager userManager)
+        //{
+        //    UserManager = userManager;
+        //}
+
+        //public ApplicationUserManager UserManager
+        //{
+        //    get
+        //    {
+        //        return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+        //    }
+        //    private set
+        //    {
+        //        _userManager = value;
+        //    }
+        //}
 
         //
         // GET: /Account/Login
