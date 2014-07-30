@@ -30,7 +30,7 @@ namespace JAMSv1._0.Controllers
 
             for (int i = 0; i < 5; i++)
             {
-                var index = rand.Next()%db.Questions.ToList().Count();
+                var index = rand.Next() % db.Questions.ToList().Count();
                 var k = db.Questions.ToList()[index];
                 db.Questions.ToList().RemoveAt(index);
 
@@ -83,9 +83,9 @@ namespace JAMSv1._0.Controllers
                     smtp.Send(mail);
                     return RedirectToAction("ThankYou");
                 }
-                
+
             }
-            
+
             return View(model);
         }
 

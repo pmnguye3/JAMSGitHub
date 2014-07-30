@@ -6,6 +6,9 @@ using System.Web;
 
 namespace JAMSv1._0.Models
 {
+    /// <summary>
+    /// Question class for questions and its properties
+    /// </summary>
     public class Question
     {
         public int QuestionID { get; set; }
