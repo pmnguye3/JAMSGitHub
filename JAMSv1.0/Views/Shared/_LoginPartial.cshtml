@@ -9,7 +9,7 @@
 
     <ul class="nav navbar-nav navbar-right">
         <li>
-            @Html.ActionLink("Welcome, " + (string)(ViewData["FullName"]) +"!", "Manage", "Account", routeValues: null, htmlAttributes: new { title = "Manage" })
+            @Html.ActionLink("Welcome, " + (string)(ViewData["FullName"]) +"!", "Index", "", routeValues: null, htmlAttributes: new { title = "Index" })
         </li>
         <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
     </ul>

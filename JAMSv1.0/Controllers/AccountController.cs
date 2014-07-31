@@ -18,7 +18,7 @@ namespace JAMSv1._0.Controllers
     /// Controller for account management
     /// </summary>
     [Authorize]
-    public class AccountController : Controller
+    public class AccountController : ApplicationController
     {
         /// <summary>
         /// Parameterless Constructor for Account Controller
@@ -70,8 +70,13 @@ namespace JAMSv1._0.Controllers
                 var user = await UserManager.FindAsync(model.Email, model.Password);
                 if (user != null)
                 {
+                    if (user.Roles.Count >= 1)
+                    {
+                        await SignInAsync(user, model.RememberMe);
+                        return RedirectToAction("Index", "Roles");
+                    }
                     await SignInAsync(user, model.RememberMe);
-                    return RedirectToAction("Upload", "Home");
+                    return RedirectToAction("Index", "Jobs");
                 }
                 else
                 {

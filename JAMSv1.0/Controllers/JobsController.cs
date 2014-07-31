@@ -10,7 +10,7 @@ using JAMSv1._0.Models;
 
 namespace JAMSv1._0.Controllers
 {
-    public class JobsController : Controller
+    public class JobsController : ApplicationController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
