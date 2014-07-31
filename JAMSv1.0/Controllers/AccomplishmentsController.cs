@@ -13,7 +13,7 @@ namespace JAMSv1._0.Controllers
     /// <summary>
     /// Controller for Accomplishments with CRUD functionality
     /// </summary>
-    public class AccomplishmentsController : ApplicationController
+    public class AccomplishmentsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 

@@ -8,7 +8,7 @@ namespace JAMSv1._0.Controllers
     /// <summary>
     /// Controller that holds home page functionality
     /// </summary>
-    public class HomeController : ApplicationController
+    public class HomeController : Controller
     {
         /// <summary>
         /// GET: /Home/Register

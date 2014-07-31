@@ -18,7 +18,7 @@ namespace JAMSv1._0.Controllers
     /// Controller for account management
     /// </summary>
     [Authorize]
-    public class AccountController : ApplicationController
+    public class AccountController : Controller
     {
         /// <summary>
         /// Parameterless Constructor for Account Controller

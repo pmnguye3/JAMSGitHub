@@ -9,7 +9,7 @@ using JAMSv1._0.Models;
 
 namespace JAMSv1._0.Controllers
 {
-    public class RolesController : ApplicationController
+    public class RolesController : Controller
     {
         private ApplicationDbContext context = new ApplicationDbContext();
 
