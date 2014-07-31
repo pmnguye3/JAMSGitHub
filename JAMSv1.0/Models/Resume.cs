@@ -6,9 +6,6 @@ using System.Web;
 
 namespace JAMSv1._0.Models
 {
-    /// <summary>
-    /// Resume class to store resume to file structure
-    /// </summary>
     public class Resume
     {
         [Key]
@@ -17,4 +14,7 @@ namespace JAMSv1._0.Models
         public HttpPostedFileBase File  { get; set; }
 
     }
+    //Test Mensur Hussien
+    //Test Mo Moorthy
+    //testing GitHub
 }

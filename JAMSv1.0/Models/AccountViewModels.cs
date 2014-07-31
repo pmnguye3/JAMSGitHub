@@ -3,9 +3,20 @@ using System.ComponentModel.DataAnnotations;
 
 namespace JAMSv1._0.Models
 {
-    /// <summary>
-    /// ManageUser class to change password
-    /// </summary>
+    public class ExternalLoginConfirmationViewModel
+    {
+        [Required]
+        [EmailAddress]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+    }
+
+    public class ExternalLoginListViewModel
+    {
+        public string Action { get; set; }
+        public string ReturnUrl { get; set; }
+    }
+
     public class ManageUserViewModel
     {
         [Required]
@@ -25,9 +36,6 @@ namespace JAMSv1._0.Models
         public string ConfirmPassword { get; set; }
     }
 
-    /// <summary>
-    /// LoginView class to login to app
-    /// </summary>
     public class LoginViewModel
     {
         [Required]
@@ -44,9 +52,6 @@ namespace JAMSv1._0.Models
         public bool RememberMe { get; set; }
     }
 
-    /// <summary>
-    /// RegisterView class to register
-    /// </summary>
     public class RegisterViewModel
     {
         [Required]
@@ -97,9 +102,6 @@ namespace JAMSv1._0.Models
         public int ZipCode { get; set; }
     }
 
-    /// <summary>
-    /// ResetPassword class to reset password
-    /// </summary>
     public class ResetPasswordViewModel
     {
         [Required]
@@ -121,9 +123,6 @@ namespace JAMSv1._0.Models
         public string Code { get; set; }
     }
 
-    /// <summary>
-    /// ForgotPassword class for forgot password
-    /// </summary>
     public class ForgotPasswordViewModel
     {
         [Required]

@@ -13,10 +13,6 @@ namespace JAMSv1._0.Controllers
     /// </summary>
     public abstract class ApplicationController : Controller
     {
-        /// <summary>
-        /// Allows logged in user's first and last name to display
-        /// </summary>
-        /// <param name="filterContext">Action executed context</param>
         protected override void OnActionExecuted(ActionExecutedContext filterContext)
         {
             if (User != null)

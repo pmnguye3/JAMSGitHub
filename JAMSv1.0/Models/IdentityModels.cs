@@ -7,9 +7,6 @@ using System;
 namespace JAMSv1._0.Models
 {
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
-    /// <summary>
-    /// ApplicationUser class to take in the user registration info and store in the database
-    /// </summary>
     public class ApplicationUser : IdentityUser
     {
         public string FirstName { get; set; }
@@ -28,9 +25,7 @@ namespace JAMSv1._0.Models
             return userIdentity;
         }
     }
-    /// <summary>
-    /// DbContext class to setup the database
-    /// </summary>
+
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
