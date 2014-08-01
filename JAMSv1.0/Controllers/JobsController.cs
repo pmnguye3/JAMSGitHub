@@ -21,6 +21,7 @@ namespace JAMSv1._0.Controllers
         }
 
         // GET: Jobs/Details/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,6 +37,7 @@ namespace JAMSv1._0.Controllers
         }
 
         // GET: Jobs/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
@@ -127,6 +129,13 @@ namespace JAMSv1._0.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult Admin()
+        {
+            List<Job> job = db.Jobs.ToList();
+            return View(job);
         }
     }
 }

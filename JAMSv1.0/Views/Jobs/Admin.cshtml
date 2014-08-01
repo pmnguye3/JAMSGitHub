@@ -1,0 +1,24 @@
+﻿@model IEnumerable<JAMSv1._0.Models.Job>
+@{
+    ViewBag.Title = "Admin";
+}
+
+@Html.ActionLink("Back To Admin Page", "../Roles/Index") | @Html.ActionLink("Create New Job", "Create")
+<h2>Edit Jobs</h2>
+<table class="table">
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.JobId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.JobId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.JobId })
+            </td>
+        </tr>
+    }
+</table>
+
