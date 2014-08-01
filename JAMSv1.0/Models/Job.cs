@@ -45,5 +45,12 @@ namespace JAMSv1._0.Models
         [Required]
         public DateTime JobStartDate { get; set; }
 
+        /// <summary>
+        /// State whether this is a .Net or Java type
+        /// </summary>
+        [Display(Name="Job Type")]
+        [Required]
+        public string JobType { get; set; }
+
     }
 }

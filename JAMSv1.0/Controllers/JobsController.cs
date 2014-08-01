@@ -46,6 +46,7 @@ namespace JAMSv1._0.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create([Bind(Include = "JobId,JobName,JobDescription,JobPostedBy,JobStartDate")] Job job)
         {
             if (ModelState.IsValid)
@@ -59,6 +60,7 @@ namespace JAMSv1._0.Controllers
         }
 
         // GET: Jobs/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -78,6 +80,7 @@ namespace JAMSv1._0.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit([Bind(Include = "JobId,JobName,JobDescription,JobPostedBy,JobStartDate")] Job job)
         {
             if (ModelState.IsValid)
@@ -90,6 +93,7 @@ namespace JAMSv1._0.Controllers
         }
 
         // GET: Jobs/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -107,6 +111,7 @@ namespace JAMSv1._0.Controllers
         // POST: Jobs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteConfirmed(int id)
         {
             Job job = db.Jobs.Find(id);

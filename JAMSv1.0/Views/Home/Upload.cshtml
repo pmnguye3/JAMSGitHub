@@ -9,7 +9,7 @@
 <div class="jumbotron">
 
     <h2>Job Application Management System</h2>
-    <p class="lead2"> Welcome, Please upload your resume here. Thank you!</p>
+    <p class="lead2"> Welcome @((string)(ViewData["FullName"])), Please upload your resume here. Thank you!</p>
     @using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         <table>

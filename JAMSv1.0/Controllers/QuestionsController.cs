@@ -177,7 +177,7 @@ namespace JAMSv1._0.Controllers
             {
                 db.Entry(question).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("ListAllQuestions");
             }
             return View(question);
         }
@@ -215,7 +215,7 @@ namespace JAMSv1._0.Controllers
             Question question = db.Questions.Find(id);
             db.Questions.Remove(question);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("ListAllQuestions");
         }
         /// <summary>
         /// GET: Questions/Dispose

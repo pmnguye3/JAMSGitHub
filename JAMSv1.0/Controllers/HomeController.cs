@@ -23,7 +23,7 @@ namespace JAMSv1._0.Controllers
         /// GET: /Home/Upload
         /// </summary>
         /// <returns>View of upload</returns>
-        public ActionResult Upload()
+        public ActionResult Upload(int? jobId)
         {
             return View();
         }
