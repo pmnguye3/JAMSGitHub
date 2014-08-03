@@ -38,10 +38,11 @@ namespace JAMSv1._0.Controllers
         [Authorize]
         public ActionResult Upload(Resume resume, string command)
         {
-            if (command == "Next")
-            {
-                RedirectToAction("Create", "Accomplishments");
-            }
+            //This block of code does nothing. I left it here just in case somebody else was using it.
+            //if (command == "Next")
+            //{
+            //    RedirectToAction("Create", "Accomplishments");
+            //}
             try
             {
                 if (resume.File.ContentLength > 0)
