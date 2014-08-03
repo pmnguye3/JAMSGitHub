@@ -48,10 +48,9 @@
             </script>
 
 
-
-
-
-            @using (Html.BeginForm("ThankYou", "Questions", FormMethod.Post, new { ID = "THANKYOU" }))
+            
+            
+            @using (Html.BeginForm("Index", "Questions", FormMethod.Post, new { ID = "THANKYOU" }))
             {
                 @Html.EditorFor(x => x.Questions)
 

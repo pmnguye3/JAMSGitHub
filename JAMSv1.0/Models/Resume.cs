@@ -14,7 +14,4 @@ namespace JAMSv1._0.Models
         public HttpPostedFileBase File  { get; set; }
 
     }
-    //Test Mensur Hussien
-    //Test Mo Moorthy
-    //testing GitHub
 }
