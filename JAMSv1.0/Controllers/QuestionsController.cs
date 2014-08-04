@@ -68,15 +68,9 @@ namespace JAMSv1._0.Controllers
                 //Auto send email like a boss.
                 using (MailMessage mail = new MailMessage("jams.cis440@gmail.com", "jams.cis440@gmail.com"))
                 {
-                    mail.Body = "Test Email Body";
-                    mail.Subject = "Test Email Subject";
-
-                    //hard coded file path to make sure the attachments work. Once all bugs fix, delete the hard code path.
-                    //mail.Attachments.Add(new Attachment("C:\\Users\\Michael\\Source\\Repos\\JAMSGitHub\\JAMSv1.0\\Content\\Resumes\\FakeResume - Copy (10).txt"));
-                    
-                    //here is the correct line of code. If you uncomment, the code will break because GetResumeFilePath keeps returning a null. WHY?!?! D:
-                    //mail.Attachments.Add(new Attachment(GetResumeFilePath()));
-                    
+                    mail.Body = "Applicant got "+ model.rightAnswers + " answers right";
+                    mail.Subject = "New Applicant";                   
+                    mail.Attachments.Add(new Attachment(GetResumeFilePath()));
                     
                     SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
                     smtp.EnableSsl = true;
