@@ -49,6 +49,7 @@ namespace JAMSv1._0.Controllers
                 {
                     string fileName = Path.GetFileName(resume.File.FileName);
                     string path = Path.Combine(Server.MapPath("~/Content/Resumes"), fileName);
+                    StoreResumeFilePath(path);
                     resume.File.SaveAs(path);
                 }
                 TempData["notice"] = "Resume Added:  "+ resume.File.FileName;

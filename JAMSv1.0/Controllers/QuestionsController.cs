@@ -53,7 +53,7 @@ namespace JAMSv1._0.Controllers
         /// <returns>Thank you page</returns>
         [HttpPost]
         //the HttpPostedFileBase File is the "resume" object that we are passing in. I think its not passing in correctly thats why the resume won't attach.
-        public ActionResult Index(Quiz model, HttpPostedFileBase File)
+        public ActionResult Index(Quiz model)
         {
             if (ModelState.IsValid)
             {
@@ -70,12 +70,14 @@ namespace JAMSv1._0.Controllers
                 {
                     mail.Body = "Test Email Body";
                     mail.Subject = "Test Email Subject";
-                    if (File != null)
-                    {
-                        string fileName = Path.GetFileName(File.FileName);
-                        mail.Attachments.Add(new Attachment(File.InputStream, fileName));
 
-                    }
+                    //hard coded file path to make sure the attachments work. Once all bugs fix, delete the hard code path.
+                    //mail.Attachments.Add(new Attachment("C:\\Users\\Michael\\Source\\Repos\\JAMSGitHub\\JAMSv1.0\\Content\\Resumes\\FakeResume - Copy (10).txt"));
+                    
+                    //here is the correct line of code. If you uncomment, the code will break because GetResumeFilePath keeps returning a null. WHY?!?! D:
+                    //mail.Attachments.Add(new Attachment(GetResumeFilePath()));
+                    
+                    
                     SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
                     smtp.EnableSsl = true;
                     smtp.UseDefaultCredentials = true;
