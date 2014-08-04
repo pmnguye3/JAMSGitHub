@@ -20,14 +20,14 @@ namespace JAMSv1._0.Models
         /// <summary>
         /// Name of the job 
         /// </summary>
-        [Display(Name = "Position")]
+        [Display(Name = "Position Title")]
         [Required]
         public string JobName { get; set; }
 
         /// <summary>
         /// Describes the job duties and responsibilities
         /// </summary>
-        [Display(Name = "Description")]
+        [Display(Name = " Job Description")]
         [Required]
         public string JobDescription { get; set; }
 
@@ -41,7 +41,7 @@ namespace JAMSv1._0.Models
         /// <summary>
         /// Date the position was made available
         /// </summary>
-        [Display(Name = "Position Posted On")]
+        [Display(Name = "Date Posted")]
         [Required]
         public DateTime JobStartDate { get; set; }
 
