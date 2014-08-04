@@ -41,7 +41,7 @@ namespace JAMSv1._0.Models
         /// <summary>
         /// Date the position was made available
         /// </summary>
-        [Display(Name = "Position Posted On")]
+        [Display(Name = "Date Posted")]
         [Required]
         public DateTime JobStartDate { get; set; }
 
