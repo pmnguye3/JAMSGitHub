@@ -29,8 +29,7 @@ namespace JAMSv1._0.Controllers
             }
             base.OnActionExecuted(filterContext);
         }
-        //store filepath to upload to resume
-        //problem: variable ResumeFilePath keeps resetting to null. Have no clue why.
+
         static string ResumeFilePath;
         public void StoreResumeFilePath(string filePath)
         {
