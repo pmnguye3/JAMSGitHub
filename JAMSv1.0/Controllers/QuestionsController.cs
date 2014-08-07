@@ -229,8 +229,34 @@ namespace JAMSv1._0.Controllers
         /// GET: Questions/ThankYou
         /// </summary>
         /// <returns>View of questions thankyou</returns>
-        public ActionResult ThankYou()
+        public ActionResult ThankYou(Quiz model)
         {
+            if (ModelState.IsValid)
+            {
+                foreach (Question q in model.Questions)
+                {
+                    if (q.SelectedAnswer == q.CorrectAnswer)
+                    {
+                        model.rightAnswers++;
+                    }
+                }
+
+                //Auto send email like a boss.
+                using (MailMessage mail = new MailMessage("jams.cis440@gmail.com", "jams.cis440@gmail.com"))
+                {
+                    mail.Body = "Applicant got " + model.rightAnswers + " answers right";
+                    mail.Subject = "New Applicant";
+                    //mail.Attachments.Add(new Attachment(GetResumeFilePath()));
+
+                    SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+                    smtp.EnableSsl = true;
+                    smtp.UseDefaultCredentials = true;
+                    smtp.Credentials = new NetworkCredential("jams.cis440@gmail.com", "whatalegitpassword");
+                    smtp.Send(mail);
+                    return View("ThankYou");
+                }
+
+            }
             return View("ThankYou");
         }
 
