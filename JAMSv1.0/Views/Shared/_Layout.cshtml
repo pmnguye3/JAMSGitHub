@@ -19,55 +19,55 @@
 
     <meta name="description" content="Job Application Management Software" />
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("JAMS", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Admin", "Index", "Roles")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
+<div ="container">
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("JAMS", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Admin", "Index", "Roles")</li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
             </div>
         </div>
-    </div>
-    <div class="footer">
-        @RenderBody()
-        <margin-bottom: -25px !important;r />
-    </div>
+        <div class="content">
+            @RenderBody()
 
-    <div class="footer2">
-        <footer>
+        </div>
+        <div class="footer">
+
             <p>
                 &copy; @DateTime.Now.Year - JAMS@@Copyright
 
-            </p>   
-            </footer>     
-    </div>
+                <a href="https://youtube.com/user/sogetiUSA" target="blank"> <img src="~/Youtube-White.png" hspace="5" align="right"></a>
 
-    <div class="footer3"
-         @*<footer>
-             
-             <a href="https://youtube.com/user/sogetiUSA" target="blank"> <img src="~/Youtube-White.png" hspace="5" align="right"></a>
+                <a href="http://facebook.com/sogeti.usa" target="blank"> <img src="~/Facebook-White.png" hspace="2" align="right"></a>
 
-             <a href="http://facebook.com/sogeti.usa" target="blank"> <img src="~/Facebook-White.png" hspace="2" align="right"></a>
+                <a href="http://instagram.com/sogeti_usa" target="blank"> <img src="~/Instagram-White.png" hspace="2" align="right"></a>
 
-             <a href="http://instagram.com/sogeti_usa" target="blank"> <img src="~/Instagram-White.png" hspace="2" align="right"></a>
+                <a href="http://twitter.com/sogeti_usa" target="blank"> <img src="~/Twitter_White.png" hspace="5" align="right"></a>
 
-             <a href="http://twitter.com/sogeti_usa" target="blank"> <img src="~/Twitter_White.png" hspace="5" align="right"></a>
-         
-         </footer>*@
+            </p>
+        </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
-</body>
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </body>
+</div>
+  
+
+   
+
+
 </html>

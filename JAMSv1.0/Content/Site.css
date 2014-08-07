@@ -122,15 +122,39 @@ h3.highlight  {
     color: #ffffff
 }
 
-.footer
+.content
 {
     padding-left:100px;
   	padding-right:100px; 
+    margin-bottom:70px; 
 
 }
 
 .btn-default
 {
     background-color: #F41
+}
+
+#container {
+   min-height:100%;
+    margin-bottom:70px; 
+   
+}
+
+.body{
+    padding:10px;
+  
+}
+
+.footer{
+       background-color: #F41;
+        color: #ffffff;
+      position:fixed;
+    height:30px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    margin-bottom:0px;
+
 }
 /* end theme */
