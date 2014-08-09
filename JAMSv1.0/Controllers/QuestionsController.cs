@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using JAMSv1._0.Models;
 
 namespace JAMSv1._0.Controllers
@@ -15,7 +16,7 @@ namespace JAMSv1._0.Controllers
     /// <summary>
     /// Controller for questions and quiz functionality
     /// </summary>
-    public class QuestionsController :ApplicationController
+    public class QuestionsController : ApplicationController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
@@ -52,7 +53,6 @@ namespace JAMSv1._0.Controllers
         /// <param name="File">Resume file</param>
         /// <returns>Thank you page</returns>
         [HttpPost]
-        //the HttpPostedFileBase File is the "resume" object that we are passing in. I think its not passing in correctly thats why the resume won't attach.
         public ActionResult Index(Quiz model)
         {
             if (ModelState.IsValid)
@@ -64,22 +64,8 @@ namespace JAMSv1._0.Controllers
                         model.rightAnswers++;
                     }
                 }
-
-                //Auto send email like a boss.
-                using (MailMessage mail = new MailMessage("jams.cis440@gmail.com", "jams.cis440@gmail.com"))
-                {
-                    mail.Body = "Applicant got "+ model.rightAnswers + " answers right";
-                    mail.Subject = "New Applicant";                   
-                    mail.Attachments.Add(new Attachment(GetResumeFilePath()));
-                    
-                    SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-                    smtp.EnableSsl = true;
-                    smtp.UseDefaultCredentials = true;
-                    smtp.Credentials = new NetworkCredential("jams.cis440@gmail.com", "whatalegitpassword");
-                    smtp.Send(mail);
-                    return RedirectToAction("ThankYou");
-                }
-                
+                SendEmail(model);
+                return RedirectToAction("ThankYou");
             }
             
             return View(model);
@@ -240,22 +226,8 @@ namespace JAMSv1._0.Controllers
                         model.rightAnswers++;
                     }
                 }
-
-                //Auto send email like a boss.
-                using (MailMessage mail = new MailMessage("jams.cis440@gmail.com", "jams.cis440@gmail.com"))
-                {
-                    mail.Body = "Applicant got " + model.rightAnswers + " answers right";
-                    mail.Subject = "New Applicant";
-                    //mail.Attachments.Add(new Attachment(GetResumeFilePath()));
-
-                    SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-                    smtp.EnableSsl = true;
-                    smtp.UseDefaultCredentials = true;
-                    smtp.Credentials = new NetworkCredential("jams.cis440@gmail.com", "whatalegitpassword");
-                    smtp.Send(mail);
-                    return View("ThankYou");
-                }
-
+                SendEmail(model);
+                return View("ThankYou");
             }
             return View("ThankYou");
         }
@@ -269,6 +241,23 @@ namespace JAMSv1._0.Controllers
         {
             List<Question> questions = db.Questions.ToList();
             return View(questions);
+        }
+
+        private void SendEmail(Quiz model)
+        {
+            using (MailMessage mail = new MailMessage("jams.cis440@gmail.com", "jams.cis440@gmail.com"))
+            {
+                mail.Body = "Applicant got " + model.rightAnswers + " answers right";
+
+                mail.Subject = ("New Applicant: " + GetFullName() + " has applied for a job.");
+                mail.Attachments.Add(new Attachment(GetResumeFilePath()));
+
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+                smtp.EnableSsl = true;
+                smtp.UseDefaultCredentials = true;
+                smtp.Credentials = new NetworkCredential("jams.cis440@gmail.com", "whatalegitpassword");
+                smtp.Send(mail);
+            }
         }
     }
 }

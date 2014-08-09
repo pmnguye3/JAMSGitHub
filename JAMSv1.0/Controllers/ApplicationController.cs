@@ -13,6 +13,9 @@ namespace JAMSv1._0.Controllers
     /// </summary>
     public abstract class ApplicationController : Controller
     {
+        static string ResumeFilePath;
+        static string fullName;
+
         protected override void OnActionExecuted(ActionExecutedContext filterContext)
         {
             if (User != null)
@@ -23,22 +26,18 @@ namespace JAMSv1._0.Controllers
                 if (!string.IsNullOrEmpty(username))
                 {
                     var user = context.Users.SingleOrDefault(u => u.UserName == username);
-                    string fullName = string.Concat(new string[] { user.FirstName, " ", user.LastName });
+                    fullName = string.Concat(new string[] { user.FirstName, " ", user.LastName });
                     ViewData.Add("FullName", fullName);
                 }
             }
             base.OnActionExecuted(filterContext);
         }
 
-        static string ResumeFilePath;
-        public void StoreResumeFilePath(string filePath)
-        {
-            ResumeFilePath = filePath;
-        }
-        public string GetResumeFilePath()
-        {
-            return ResumeFilePath;
-        }
+        public void StoreResumeFilePath(string filePath) {ResumeFilePath = filePath;}
+
+        public string GetResumeFilePath() {return ResumeFilePath;}
+
+        public string GetFullName() { return fullName; }
 
         public ApplicationController()
         {
