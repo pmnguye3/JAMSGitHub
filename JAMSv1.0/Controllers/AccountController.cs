@@ -76,7 +76,6 @@ namespace JAMSv1._0.Controllers
                         return RedirectToAction("Index", "Roles");
                     }
                     await SignInAsync(user, model.RememberMe);
-                    StoreCurrentUser(user);
                     if (user.ApplyComplete == false)
                     {
                         return RedirectToAction("Index", "Jobs");
@@ -154,7 +153,6 @@ namespace JAMSv1._0.Controllers
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-                    StoreCurrentUser(user);
                     return RedirectToAction("Index", "Jobs");
                 }
                 else

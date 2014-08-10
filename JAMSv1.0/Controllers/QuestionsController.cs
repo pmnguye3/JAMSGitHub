@@ -10,6 +10,7 @@ using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using JAMSv1._0.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace JAMSv1._0.Controllers
 {
@@ -43,6 +44,10 @@ namespace JAMSv1._0.Controllers
                     }
                 }
             }
+            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+            var currentUser = manager.FindById(User.Identity.GetUserId());
+            currentUser.AccomplishmentComplete = true;
+            manager.UpdateAsync(currentUser);
             return View(newQuiz);
         }
 
@@ -65,6 +70,10 @@ namespace JAMSv1._0.Controllers
                     }
                 }
                 SendEmail(model);
+                var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+                var currentUser = manager.FindById(User.Identity.GetUserId());
+                currentUser.PrescreeningComplete = true;
+                manager.UpdateAsync(currentUser);
                 return RedirectToAction("ThankYou");
             }
             

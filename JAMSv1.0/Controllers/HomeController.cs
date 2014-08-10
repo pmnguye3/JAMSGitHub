@@ -30,14 +30,8 @@ namespace JAMSv1._0.Controllers
 
             var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
             var currentUser = manager.FindById(User.Identity.GetUserId());
-            //ApplicationUser user = GetCurrentUser();
             currentUser.ApplyComplete = true;
             manager.UpdateAsync(currentUser);
-            
-            //var account = new AccountController();
-            
-            
-            
             return View();
         }
 
@@ -64,6 +58,10 @@ namespace JAMSv1._0.Controllers
                     string path = Path.Combine(Server.MapPath("~/Content/Resumes"), fileName);
                     StoreResumeFilePath(path);
                     resume.File.SaveAs(path);
+                    var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+                    var currentUser = manager.FindById(User.Identity.GetUserId());
+                    currentUser.UploadComplete = true;
+                    manager.UpdateAsync(currentUser);
                 }
                 TempData["notice"] = "Resume Added:  "+ resume.File.FileName;
                 return View(resume);
