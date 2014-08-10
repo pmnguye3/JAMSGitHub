@@ -45,9 +45,7 @@ namespace JAMSv1._0.Controllers
                 }
             }
             var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
-            var currentUser = manager.FindById(User.Identity.GetUserId());
-            //currentUser.ApplyComplete = false; //change soon
-            //currentUser.UploadComplete = false;
+            var currentUser = manager.FindById(User.Identity.GetUserId());           
             currentUser.AccomplishmentComplete = true;
             manager.UpdateAsync(currentUser);
             return View(newQuiz);
@@ -238,6 +236,16 @@ namespace JAMSv1._0.Controllers
                     }
                 }
                 SendEmail(model);
+                var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+                var currentUser = manager.FindById(User.Identity.GetUserId());
+                // Here is some code to uncomment in order to reset the workflow and start from the beginning
+
+                //currentUser.ApplyComplete = false; 
+                //currentUser.UploadComplete = false;
+                //currentUser.AccomplishmentComplete = false;
+                //currentUser.PrescreeningComplete = false;
+                //currentUser.ResumeFilePath = null;
+                
                 return View("ThankYou");
             }
             return View("ThankYou");
