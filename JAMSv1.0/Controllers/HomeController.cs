@@ -27,11 +27,15 @@ namespace JAMSv1._0.Controllers
         /// <returns>View of upload</returns>
         public ActionResult Upload(int? jobId)
         {
-
             var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
             var currentUser = manager.FindById(User.Identity.GetUserId());
             currentUser.ApplyComplete = true;
             manager.UpdateAsync(currentUser);
+            currentUser.JobId = Convert.ToInt32(jobId);
+            if (currentUser.JobId == 0)
+            {
+                currentUser.JobId = 999;
+            }
             return View();
         }
 

@@ -92,6 +92,11 @@ namespace JAMSv1._0.Controllers
                     {
                         return RedirectToAction("Index", "Questions");
                     }
+                    else if (user.ApplicationComplete == true)
+                    {
+                        //
+                        return RedirectToAction("Index", "Jobs");
+                    }
                     else
                     {
                         return RedirectToAction("ThankYou", "Questions");

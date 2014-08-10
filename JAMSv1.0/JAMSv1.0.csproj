@@ -176,6 +176,10 @@
     <Compile Include="Migrations\201407090515438_FirstName.Designer.cs">
       <DependentUpon>201407090515438_FirstName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201408102101065_AddJobId.cs" />
+    <Compile Include="Migrations\201408102101065_AddJobId.Designer.cs">
+      <DependentUpon>201408102101065_AddJobId.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Accomplishment.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -278,6 +282,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201407090515438_FirstName.resx">
       <DependentUpon>201407090515438_FirstName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408102101065_AddJobId.resx">
+      <DependentUpon>201408102101065_AddJobId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

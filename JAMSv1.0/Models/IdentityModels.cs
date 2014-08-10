@@ -21,7 +21,9 @@ namespace JAMSv1._0.Models
         public bool UploadComplete { get; set; }
         public bool AccomplishmentComplete { get; set; }
         public bool PrescreeningComplete { get; set; }
+        public bool ApplicationComplete { get; set; }
         public string ResumeFilePath { get; set; }
+        public int JobId { get; set; }
 
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
