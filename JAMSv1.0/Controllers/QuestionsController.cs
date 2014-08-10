@@ -46,6 +46,8 @@ namespace JAMSv1._0.Controllers
             }
             var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
             var currentUser = manager.FindById(User.Identity.GetUserId());
+            //currentUser.ApplyComplete = false; //change soon
+            //currentUser.UploadComplete = false;
             currentUser.AccomplishmentComplete = true;
             manager.UpdateAsync(currentUser);
             return View(newQuiz);

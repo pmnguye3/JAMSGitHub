@@ -60,6 +60,7 @@ namespace JAMSv1._0.Controllers
                     resume.File.SaveAs(path);
                     var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
                     var currentUser = manager.FindById(User.Identity.GetUserId());
+                    currentUser.ResumeFilePath = path;
                     currentUser.UploadComplete = true;
                     manager.UpdateAsync(currentUser);
                 }

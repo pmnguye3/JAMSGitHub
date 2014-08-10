@@ -1,4 +1,6 @@
 ﻿using JAMSv1._0.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,7 +37,12 @@ namespace JAMSv1._0.Controllers
 
         public void StoreResumeFilePath(string filePath) {ResumeFilePath = filePath;}
 
-        public string GetResumeFilePath() {return ResumeFilePath;}
+        public string GetResumeFilePath()
+        {
+            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+            var currentUser = manager.FindById(User.Identity.GetUserId());
+            return currentUser.ResumeFilePath;
+        }
 
         public string GetFullName() { return fullName; }
 
