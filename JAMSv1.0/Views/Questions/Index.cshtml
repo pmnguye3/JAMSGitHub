@@ -7,46 +7,48 @@
     <div id="progressbar" class="all-rounded" style="width: 80%"><span></span></div>
 </div>
 
-@*<meta http-equiv="refresh" content="3; URL=/Questions/ThankYou">*@
+@*<meta http-equiv="refresh" content="900; URL=/Questions/ThankYou">*@
 
 <div class="row">
     <div class="col-md-offset-1">
         <section id="questionForm">
             <h2>Questions</h2>
 
-            <form action="ThankYou" name="counter">
-                <input type="text" size="8"
-                       name="d2">
-            </form>
+            <div class="timer">
+                <form action="ThankYou" name="counter">
+                    <input type="text" size="8"
+                           name="d2">
+                </form>
+            </div>
 
-
-            <script type="text/javascript">
-                var minutes = 1
-                var seconds = 00
-                function SubmitForm() {
-                    $('#THANKYOU').submit();
-                }
-
-                document.counter.d2.value = '30:00'
-
-                function display() {
-                    if (seconds <= 0) {
-                        minutes -= 1
-                        seconds += 59
+            <div style="width:1024px; margin:auto">
+                <script type="text/javascript">
+                    var minutes = 15
+                    var seconds = 00
+                    function SubmitForm() {
+                        $('#THANKYOU').submit();
                     }
-                    if (minutes <= -1) {
 
-                        $("form").trigger("submit");
+                    document.counter.d2.value = '30:00'
 
+                    function display() {
+                        if (seconds <= 0) {
+                            minutes -= 1
+                            seconds += 59
+                        }
+                        if (minutes <= -1) {
+
+                            $("form").trigger("submit");
+
+                        }
+                        else
+                            seconds -= 1
+                        document.counter.d2.value = minutes + ":" + seconds
+                        setTimeout("display()", 1000)
                     }
-                    else
-                        seconds -= 1
-                    document.counter.d2.value = minutes + ":" + seconds
-                    setTimeout("display()", 1000)
-                }
-                display()
-            </script>
-
+                    display()
+                </script>
+            </div>
 
             
             
