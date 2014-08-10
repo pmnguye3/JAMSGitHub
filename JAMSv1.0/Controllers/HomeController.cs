@@ -25,6 +25,10 @@ namespace JAMSv1._0.Controllers
         /// <returns>View of upload</returns>
         public ActionResult Upload(int? jobId)
         {
+            ApplicationUser user = GetCurrentUser();
+            user.ApplyComplete = true;
+            var account = new AccountController();  
+
             return View();
         }
 

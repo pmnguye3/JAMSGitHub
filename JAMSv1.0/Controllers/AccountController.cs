@@ -76,13 +76,35 @@ namespace JAMSv1._0.Controllers
                         return RedirectToAction("Index", "Roles");
                     }
                     await SignInAsync(user, model.RememberMe);
-                    return RedirectToAction("Index", "Jobs");
+                    StoreCurrentUser(user);
+                    if (user.ApplyComplete == false)
+                    {
+                        return RedirectToAction("Index", "Jobs");
+                    }
+                    else if (user.UploadComplete == false)
+                    {
+                        return RedirectToAction("Upload", "Home");
+                    }
+                    else if (user.AccomplishmentComplete == false)
+                    {
+                        return RedirectToAction("Create", "Accomplishment");
+                    }
+                    else if (user.PrescreeningComplete == false)
+                    {
+                        return RedirectToAction("Index", "Questions");
+                    }
+                    else
+                    {
+                        return RedirectToAction("ThankYou", "Questions");
+                    }
+
                 }
                 else
                 {
                     ModelState.AddModelError("", "Invalid username or password.");
                 }
             }
+
 
             // If we got this far, something failed, redisplay form
             return View(model);
@@ -132,7 +154,7 @@ namespace JAMSv1._0.Controllers
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-
+                    StoreCurrentUser(user);
                     return RedirectToAction("Index", "Jobs");
                 }
                 else

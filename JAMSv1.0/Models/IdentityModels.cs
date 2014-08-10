@@ -17,6 +17,12 @@ namespace JAMSv1._0.Models
         public string State { get; set; }
         public int ZipCode { get; set; }
 
+        public bool ApplyComplete { get; set; }
+        public bool UploadComplete { get; set; }
+        public bool AccomplishmentComplete { get; set; }
+        public bool PrescreeningComplete { get; set; }
+
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType

@@ -32,6 +32,15 @@ namespace JAMSv1._0.Controllers
             }
             base.OnActionExecuted(filterContext);
         }
+        static ApplicationUser currentUser;
+        public void StoreCurrentUser(ApplicationUser user)
+        {
+            currentUser = user;
+        }
+        public ApplicationUser GetCurrentUser()
+        {
+            return currentUser;
+        }
 
         public void StoreResumeFilePath(string filePath) {ResumeFilePath = filePath;}
 
