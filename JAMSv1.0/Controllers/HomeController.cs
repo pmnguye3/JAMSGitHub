@@ -2,6 +2,8 @@
 using System.IO;
 using System.Web.Mvc;
 using JAMSv1._0.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity;
 
 namespace JAMSv1._0.Controllers
 {
@@ -25,10 +27,17 @@ namespace JAMSv1._0.Controllers
         /// <returns>View of upload</returns>
         public ActionResult Upload(int? jobId)
         {
-            ApplicationUser user = GetCurrentUser();
-            user.ApplyComplete = true;
-            var account = new AccountController();  
 
+            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+            var currentUser = manager.FindById(User.Identity.GetUserId());
+            //ApplicationUser user = GetCurrentUser();
+            currentUser.ApplyComplete = true;
+            manager.UpdateAsync(currentUser);
+            
+            //var account = new AccountController();
+            
+            
+            
             return View();
         }
 
