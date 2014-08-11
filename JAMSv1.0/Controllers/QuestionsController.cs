@@ -246,9 +246,18 @@ namespace JAMSv1._0.Controllers
                         model.rightAnswers++;
                     }
                 }
-                //SendEmail(model);
                 var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
                 var currentUser = manager.FindById(User.Identity.GetUserId());
+                Job newJob = new Job();
+
+                foreach (var job in db.Jobs.ToList())
+                {
+                    if (job.JobId == currentUser.JobId)
+                    {
+                        newJob = job;
+                    }
+                }
+                SendEmail(model, newJob);
                 // Here is some code to uncomment in order to reset the workflow and start from the beginning
 
                 //currentUser.ApplyComplete = false;
