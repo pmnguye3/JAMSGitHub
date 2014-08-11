@@ -25,6 +25,8 @@ namespace JAMSv1._0.Models
         public string ResumeFilePath { get; set; }
         public int JobId { get; set; }
 
+        public virtual Accomplishment Accomplishment { get; set; }
+
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
