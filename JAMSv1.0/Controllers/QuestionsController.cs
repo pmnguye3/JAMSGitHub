@@ -27,27 +27,32 @@ namespace JAMSv1._0.Controllers
         /// <returns>View of index with quiz questions</returns>
         public ActionResult Index()
         {
+            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+            var currentUser = manager.FindById(User.Identity.GetUserId());
+            currentUser.AccomplishmentComplete = true;
+            manager.UpdateAsync(currentUser);
+
             Quiz newQuiz = new Quiz();
             Random rand = new Random();
-
-            for (int i = 0; i < 5; i++)
+            int counter = 0;
+            do
             {
-                var index = rand.Next()%db.Questions.ToList().Count();
+                var index = rand.Next() % db.Questions.ToList().Count();
                 var k = db.Questions.ToList()[index];
                 db.Questions.ToList().RemoveAt(index);
 
                 foreach (var question in db.Questions.ToList())
                 {
-                    if (question == k)
+                    if (question == k && question.Job.JobId == currentUser.JobId)
                     {
                         newQuiz.Questions.Add(question);
+                        counter++;
                     }
                 }
-            }
-            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
-            var currentUser = manager.FindById(User.Identity.GetUserId());           
-            currentUser.AccomplishmentComplete = true;
-            manager.UpdateAsync(currentUser);
+                
+            } while (counter < 5);
+                
+            
             return View(newQuiz);
         }
 
