@@ -34,12 +34,21 @@ namespace JAMSv1._0.Controllers
 
             Quiz newQuiz = new Quiz();
             Random rand = new Random();
+            List<Question> questionList = new List<Question>(db.Questions.ToList().Count);
+            foreach (var item in db.Questions.ToList())
+            {
+                questionList.Add(item);
+            }
             int counter = 0;
+
             do
             {
-                var index = rand.Next() % db.Questions.ToList().Count();
-                var k = db.Questions.ToList()[index];
-                db.Questions.ToList().RemoveAt(index);
+                //var index = rand.Next() % db.Questions.ToList().Count();
+                var index = rand.Next() % questionList.Count;
+                //var k = db.Questions.ToList()[index];
+                var k = questionList[index];
+                //db.Questions.ToList().RemoveAt(index);
+                
 
                 foreach (var question in db.Questions.ToList())
                 {
@@ -49,6 +58,8 @@ namespace JAMSv1._0.Controllers
                         counter++;
                     }
                 }
+                questionList.RemoveAt(index);
+                
                 
             } while (counter < 5);
                 
