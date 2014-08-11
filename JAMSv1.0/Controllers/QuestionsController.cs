@@ -80,12 +80,11 @@ namespace JAMSv1._0.Controllers
                 {
                     if (job.JobId == currentUser.JobId)
                     {
-                        //newQuiz.Questions.Add(question);
-                        newJob.JobName = job.JobName;
+                        newJob = job;
                     }
                 }
 
-                SendEmail(model, newJob.JobName);
+                SendEmail(model, newJob);
                 return RedirectToAction("ThankYou");
             }
             
@@ -275,13 +274,13 @@ namespace JAMSv1._0.Controllers
             return View(questions);
         }
 
-        private void SendEmail(Quiz model, string jobName)
+        private void SendEmail(Quiz model, Job jobModel)
         {
             using (MailMessage mail = new MailMessage("jams.cis440@gmail.com", "jams.cis440@gmail.com"))
             {
                 mail.Body = "Applicant got " + model.rightAnswers + " answers right";
 
-                mail.Subject = ("New Applicant: " + GetFullName() + " has applied for a job " + jobName +".");
+                mail.Subject = ("New Applicant: " + GetFullName() + " has applied for a job " + jobModel.JobName +".");
                 mail.Attachments.Add(new Attachment(GetResumeFilePath()));
 
                 SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
