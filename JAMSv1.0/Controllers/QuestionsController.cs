@@ -69,11 +69,23 @@ namespace JAMSv1._0.Controllers
                         model.rightAnswers++;
                     }
                 }
-                SendEmail(model);
                 var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
                 var currentUser = manager.FindById(User.Identity.GetUserId());
                 currentUser.PrescreeningComplete = true;
                 manager.UpdateAsync(currentUser);
+
+                Job newJob = new Job();
+
+                foreach (var job in db.Jobs.ToList())
+                {
+                    if (job.JobId == currentUser.JobId)
+                    {
+                        //newQuiz.Questions.Add(question);
+                        newJob.JobName = job.JobName;
+                    }
+                }
+
+                SendEmail(model, newJob.JobName);
                 return RedirectToAction("ThankYou");
             }
             
@@ -235,7 +247,7 @@ namespace JAMSv1._0.Controllers
                         model.rightAnswers++;
                     }
                 }
-                SendEmail(model);
+                //SendEmail(model);
                 var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
                 var currentUser = manager.FindById(User.Identity.GetUserId());
                 // Here is some code to uncomment in order to reset the workflow and start from the beginning
@@ -263,13 +275,13 @@ namespace JAMSv1._0.Controllers
             return View(questions);
         }
 
-        private void SendEmail(Quiz model)
+        private void SendEmail(Quiz model, string jobName)
         {
             using (MailMessage mail = new MailMessage("jams.cis440@gmail.com", "jams.cis440@gmail.com"))
             {
                 mail.Body = "Applicant got " + model.rightAnswers + " answers right";
 
-                mail.Subject = ("New Applicant: " + GetFullName() + " has applied for a job.");
+                mail.Subject = ("New Applicant: " + GetFullName() + " has applied for a job " + jobName +".");
                 mail.Attachments.Add(new Attachment(GetResumeFilePath()));
 
                 SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
