@@ -287,9 +287,9 @@ namespace JAMSv1._0.Controllers
         {
             using (MailMessage mail = new MailMessage("jams.cis440@gmail.com", "jams.cis440@gmail.com"))
             {
-                mail.Body = "Applicant got " + model.rightAnswers + " answers right";
-
-                mail.Subject = ("New Applicant: " + GetFullName() + " has applied for a job " + jobModel.JobName +".");
+                mail.Body = "Date: "+ DateTime.Today + "\nName: " + GetFullName() + "\nApplicant got " + model.rightAnswers + " answers right out of 5. \n\n" + 
+                    "Job Name: " + jobModel.JobName + "\nJob Type: " + jobModel.JobType;
+                mail.Subject = ("Applicant: " + GetFullName() + " has applied for " + jobModel.JobType + " job: " + jobModel.JobName + ".");
                 mail.Attachments.Add(new Attachment(GetResumeFilePath()));
 
                 SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
