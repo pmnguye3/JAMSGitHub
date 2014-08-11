@@ -23,11 +23,14 @@ namespace JAMSv1._0.Controllers
         /// GET: Accomplishments/Index
         /// </summary>
         /// <returns>View list of accomplishments</returns>
-        public ActionResult Index()
+        public ActionResult Index(Accomplishment accompish)
         {
-            //Changes I tried to get only the users Accomplishments to display, this broke all the views though.
             var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
             var currentUser = manager.FindById(User.Identity.GetUserId());
+            if(ModelState.IsValid)
+            {
+                return View(accompish);
+            }
             return View(currentUser.Accomplishment);
             //return View(db.Accomplishments.ToList());
         }
@@ -77,7 +80,7 @@ namespace JAMSv1._0.Controllers
                 var currentUser = manager.FindById(User.Identity.GetUserId());
                 currentUser.Accomplishment = accomplishment;
                 manager.UpdateAsync(currentUser);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", currentUser.Accomplishment);
             }
 
             return View(accomplishment);
