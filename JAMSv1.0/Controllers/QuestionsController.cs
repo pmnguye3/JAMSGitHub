@@ -101,6 +101,7 @@ namespace JAMSv1._0.Controllers
                 }
 
                 SendEmail(model, newJob);
+                currentUser.ApplicationComplete = true;
                 return RedirectToAction("ThankYou");
             }
             
@@ -273,7 +274,11 @@ namespace JAMSv1._0.Controllers
                         newJob = job;
                     }
                 }
-                SendEmail(model, newJob);
+                if (currentUser.ApplicationComplete != true)
+                {
+                    SendEmail(model, newJob);
+                }
+                
                 // Here is some code to uncomment in order to reset the workflow and start from the beginning
 
                 currentUser.ApplyComplete = false;
