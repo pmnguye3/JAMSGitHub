@@ -26,10 +26,10 @@ namespace JAMSv1._0.Controllers
         public ActionResult Index()
         {
             //Changes I tried to get only the users Accomplishments to display, this broke all the views though.
-            //var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
-            //var currentUser = manager.FindById(User.Identity.GetUserId());
-            //return View(currentUser.Accomplishment);
-            return View(db.Accomplishments.ToList());
+            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+            var currentUser = manager.FindById(User.Identity.GetUserId());
+            return View(currentUser.Accomplishment);
+            //return View(db.Accomplishments.ToList());
         }
 
         /// <summary>

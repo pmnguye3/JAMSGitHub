@@ -1,4 +1,5 @@
-﻿@model IEnumerable<JAMSv1._0.Models.Accomplishment>
+﻿@*@model IEnumerable<JAMSv1._0.Models.Accomplishment>*@
+@model JAMSv1._0.Models.Accomplishment
 
 @{
     ViewBag.Title = "Index";
@@ -33,34 +34,32 @@
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
-    {
+
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.AccomplishmentDate1)
+                @Html.DisplayFor(modelItem => Model.AccomplishmentDate1)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Accomplishment1)
+                @Html.DisplayFor(modelItem => Model.Accomplishment1)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.AccomplishmentDate2)
+                @Html.DisplayFor(modelItem => Model.AccomplishmentDate2)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Accomplishment2)
+                @Html.DisplayFor(modelItem => Model.Accomplishment2)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.AccomplishmentDate3)
+                @Html.DisplayFor(modelItem => Model.AccomplishmentDate3)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Accomplishment3)
+                @Html.DisplayFor(modelItem => Model.Accomplishment3)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.AccomplishmentID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.AccomplishmentID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.AccomplishmentID })
+                @Html.ActionLink("Edit", "Edit", new { id = Model.AccomplishmentID }) |
+                @Html.ActionLink("Details", "Details", new { id = Model.AccomplishmentID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = Model.AccomplishmentID })
             </td>
         </tr>
-    }
 
 </table>
 <p><button class="btn btn-default" onclick="location.href='@Url.Action("Index", "Questions")';return false;">Continue To Prescreening</button></p>
