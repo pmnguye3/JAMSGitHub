@@ -252,12 +252,12 @@ namespace JAMSv1._0.Controllers
                 var currentUser = manager.FindById(User.Identity.GetUserId());
                 // Here is some code to uncomment in order to reset the workflow and start from the beginning
 
-                //currentUser.ApplyComplete = false;
-                //currentUser.UploadComplete = false;
-                //currentUser.AccomplishmentComplete = false;
-                //currentUser.PrescreeningComplete = false;
-                //currentUser.ResumeFilePath = null;
-                //manager.UpdateAsync(currentUser);
+                currentUser.ApplyComplete = false;
+                currentUser.UploadComplete = false;
+                currentUser.AccomplishmentComplete = false;
+                currentUser.PrescreeningComplete = false;
+                currentUser.ResumeFilePath = null;
+                manager.UpdateAsync(currentUser);
                 
                 return View("ThankYou");
             }

@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using JAMSv1._0.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace JAMSv1._0.Controllers
 {
@@ -67,6 +69,10 @@ namespace JAMSv1._0.Controllers
             {
                 db.Accomplishments.Add(accomplishment);
                 db.SaveChanges();
+                var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+                var currentUser = manager.FindById(User.Identity.GetUserId());
+                currentUser.Accomplishment = accomplishment;
+                manager.UpdateAsync(currentUser);
                 return RedirectToAction("Index");
             }
 
