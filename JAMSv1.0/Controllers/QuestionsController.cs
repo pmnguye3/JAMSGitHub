@@ -175,6 +175,7 @@ namespace JAMSv1._0.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            ViewBag.JobId = new SelectList(db.Jobs, "JobId", "JobName");
             Question question = db.Questions.Find(id);
             if (question == null)
             {
@@ -192,7 +193,7 @@ namespace JAMSv1._0.Controllers
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
         public ActionResult Edit(
-            [Bind(Include = "QuestionID,QuestionString,Answer1,Answer2,Answer3,Answer4,CorrectAnswer")] Question
+            [Bind(Include = "QuestionID,QuestionString,Answer1,Answer2,Answer3,Answer4,CorrectAnswer,JobId")] Question
                 question)
         {
             if (ModelState.IsValid)
