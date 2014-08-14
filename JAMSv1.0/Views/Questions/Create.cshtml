@@ -63,10 +63,10 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Job.JobId, "Job Id", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.JobId, "Job Id", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Job.JobId, ViewBag.JobId as SelectList, "Job Category", new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Job.JobId, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.JobId, ViewBag.JobId as SelectList, "Job Category", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.JobId, "", new { @class = "text-danger" })
             </div>
         </div>
 

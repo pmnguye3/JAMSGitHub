@@ -52,7 +52,7 @@ namespace JAMSv1._0.Controllers
 
                 foreach (var question in db.Questions.ToList())
                 {
-                    if (question == k && question.Job.JobId == currentUser.JobId)
+                    if (question == k && question.JobId == currentUser.JobId)
                     {
                         newQuiz.Questions.Add(question);
                         counter++;
