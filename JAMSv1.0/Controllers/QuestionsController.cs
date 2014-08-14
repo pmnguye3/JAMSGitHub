@@ -119,7 +119,7 @@ namespace JAMSv1._0.Controllers
             }
             Question question = db.Questions.Find(id);
             Job job = db.Jobs.Find(question.JobId);
-            ViewBag.tempJobName = job.JobName;
+            //ViewBag.tempJobName = job.JobName;
             if (question == null)
             {
                 return HttpNotFound();

@@ -49,7 +49,7 @@ namespace JAMSv1._0.Models
         /// State whether this is a .Net or Java type
         /// </summary>
         [Display(Name="Job Type")]
-        [Required]
+        //[Required]
         public string JobType { get; set; }
 
     }

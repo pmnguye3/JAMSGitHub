@@ -55,7 +55,7 @@ namespace JAMSv1._0.Controllers
             {
                 db.Jobs.Add(job);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Admin");
             }
 
             return View(job);
@@ -89,7 +89,7 @@ namespace JAMSv1._0.Controllers
             {
                 db.Entry(job).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Admin");
             }
             return View(job);
         }
@@ -119,7 +119,7 @@ namespace JAMSv1._0.Controllers
             Job job = db.Jobs.Find(id);
             db.Jobs.Remove(job);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Admin");
         }
 
         protected override void Dispose(bool disposing)
