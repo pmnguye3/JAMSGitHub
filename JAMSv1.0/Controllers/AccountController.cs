@@ -86,7 +86,7 @@ namespace JAMSv1._0.Controllers
                     }
                     else if (user.AccomplishmentComplete == false)
                     {
-                        return RedirectToAction("Create", "Accomplishment");
+                        return RedirectToAction("Create", "Accomplishments");
                     }
                     else if (user.PrescreeningComplete == false)
                     {

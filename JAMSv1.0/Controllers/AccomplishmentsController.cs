@@ -60,7 +60,9 @@ namespace JAMSv1._0.Controllers
         /// <returns>Create view</returns>
         public ActionResult Create()
         {
-            return View();
+            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+            var currentUser = manager.FindById(User.Identity.GetUserId());
+            return View(currentUser.Accomplishment);
         }
 
         /// <summary>
