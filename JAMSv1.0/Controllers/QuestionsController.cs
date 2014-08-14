@@ -135,7 +135,7 @@ namespace JAMSv1._0.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
-            ViewBag.JobId = new SelectList(db.Jobs, "JobId", "Job Id");
+            ViewBag.JobId = new SelectList(db.Jobs, "JobId", "JobName");
             return View();
         }
 
@@ -148,12 +148,11 @@ namespace JAMSv1._0.Controllers
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
         public ActionResult Create(
-            [Bind(Include = "QuestionID,QuestionString,Answer1,Answer2,Answer3,Answer4,CorrectAnswer")] Question
+            [Bind(Include = "QuestionID,QuestionString,Answer1,Answer2,Answer3,Answer4,CorrectAnswer,JobId")] Question
                 question)
         {
             if (ModelState.IsValid)
             {
-                
                 db.Questions.Add(question);
                 db.SaveChanges();
                 return RedirectToAction("ListAllQuestions");

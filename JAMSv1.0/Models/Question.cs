@@ -10,6 +10,7 @@ namespace JAMSv1._0.Models
     {
         public int QuestionID { get; set; }
 
+        public int? JobId { get; set; }
         public virtual Job Job { get; set; }
 
         [Display(Name = "Question")]
