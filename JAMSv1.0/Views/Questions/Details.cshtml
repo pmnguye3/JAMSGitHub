@@ -58,11 +58,11 @@
             @Html.DisplayFor(model => model.CorrectAnswer)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.JobId)
+            @Html.LabelFor(model => model.JobId, "Job Name")
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.JobId)
+            @ViewBag.tempJobName
         </dd>
 
     </dl>

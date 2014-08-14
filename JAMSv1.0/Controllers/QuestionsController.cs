@@ -121,6 +121,8 @@ namespace JAMSv1._0.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Question question = db.Questions.Find(id);
+            Job job = db.Jobs.Find(question.JobId);
+            ViewBag.tempJobName = job.JobName;
             if (question == null)
             {
                 return HttpNotFound();
