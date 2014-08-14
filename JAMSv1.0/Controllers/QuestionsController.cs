@@ -135,6 +135,7 @@ namespace JAMSv1._0.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
+            ViewBag.JobId = new SelectList(db.Jobs, "JobId", "Job Id");
             return View();
         }
 
@@ -152,9 +153,10 @@ namespace JAMSv1._0.Controllers
         {
             if (ModelState.IsValid)
             {
+                
                 db.Questions.Add(question);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("ListAllQuestions");
             }
 
             return View(question);

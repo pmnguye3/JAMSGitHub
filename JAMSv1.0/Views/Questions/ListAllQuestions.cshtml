@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "ListAllQuestions";
 }
-@Html.ActionLink("Back To Admin Page", "../Roles/Index")
+@Html.ActionLink("Back To Admin Page", "../Roles/Index") | @Html.ActionLink("Create New Question", "Create")
 <h2>List All Questions</h2>
 <table class="table">
     @foreach (var item in Model)
