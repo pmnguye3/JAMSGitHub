@@ -43,11 +43,8 @@ namespace JAMSv1._0.Controllers
 
             do
             {
-                //var index = rand.Next() % db.Questions.ToList().Count();
                 var index = rand.Next() % questionList.Count;
-                //var k = db.Questions.ToList()[index];
                 var k = questionList[index];
-                //db.Questions.ToList().RemoveAt(index);
                 
 
                 foreach (var question in db.Questions.ToList())
